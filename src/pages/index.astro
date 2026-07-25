@@ -1,17 +1,345 @@
 ---
+import Layout from '../layouts/Layout.astro';
 
+const ldJson = [
+  JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://www.rejimetal.com/#empresa",
+    "name": "REJIMETAL S.L.",
+    "url": "https://www.rejimetal.com/",
+    "logo": "https://www.rejimetal.com/assets/img/logo-rejimetal.png",
+    "image": "https://www.rejimetal.com/assets/img/rejimetal-fachada-corporativa.webp",
+    "description": "Fabricación de rejillas metálicas, tramex, peldaños, marcos y emparrillados a medida para trabajos especiales, huecos existentes y soluciones fuera de catálogo.",
+    "telephone": "+34 968 597 553",
+    "email": "correo@rejimetal.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Carretera Cartagena-Alhama, Km 19",
+      "postalCode": "30320",
+      "addressLocality": "Fuente Álamo de Murcia",
+      "addressRegion": "Murcia",
+      "addressCountry": "ES"
+    },
+    "hasMap": "https://www.google.com/maps/search/?api=1&query=Rejimetal%20S.L.%20Carretera%20Cartagena-Alhama%20Km%2019%2030320%20Fuente%20Alamo%20de%20Murcia",
+    "areaServed": [
+      { "@type": "AdministrativeArea", "name": "Región de Murcia" },
+      { "@type": "City", "name": "Cartagena" },
+      { "@type": "City", "name": "Fuente Álamo de Murcia" }
+    ],
+    "contactPoint": [{
+      "@type": "ContactPoint",
+      "telephone": "+34 968 597 553",
+      "email": "correo@rejimetal.com",
+      "contactType": "presupuestos y atención comercial",
+      "areaServed": "ES",
+      "availableLanguage": ["es"]
+    }]
+  })
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout
+  title="Rejillas metálicas y tramex a medida en Murcia | REJIMETAL"
+  description="Fabricación de rejillas metálicas, tramex, peldaños y marcos a medida en Fuente Álamo de Murcia. Trabajos bajo plano, croquis, muestra o medidas."
+  canonical="https://www.rejimetal.com/"
+  ogType="website"
+  ogTitle="Rejillas metálicas y tramex a medida en Murcia | REJIMETAL"
+  ogDescription="Fabricamos rejillas metálicas a medida para trabajos especiales, recortes, marcos, huecos existentes y necesidades fuera de catálogo."
+  ogUrl="https://www.rejimetal.com/"
+  ldJson={ldJson}
+>
+  <section id="hero" class="hero section-anchor">
+    <div class="container hero-grid">
+      <div class="hero-copy reveal">
+        <p class="hero-intro">Desde el año 1992 fabricamos y comercializamos emparrillados y productos metálicos.</p>
+        <h1>Rejillas metálicas a medida</h1>
+        <p class="hero-lead">Hacemos rejillas metálicas a medida en Fuente Álamo de Murcia para huecos, cargas y trabajos que no encajan en catálogo. Desde 1992 fabricamos tramex, peldaños, marcos y registros bajo plano, croquis, muestra o medidas tomadas en obra.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" id="heroBudgetEmail" href="mailto:correo@rejimetal.com">Pedir presupuesto por correo</a>
+          <a class="btn btn-secondary" href="#contacto">Enviar medidas o plano</a>
+          <a class="btn btn-link" href="tel:+34968597553">Llamar ahora</a>
+        </div>
+        <p class="microcopy">Con una foto, croquis, plano o medidas aproximadas te orientamos antes.</p>
+        <ul class="hero-badges" aria-label="Capacidades principales">
+          <li>Fabricación a medida</li>
+          <li>Bajo plano o muestra</li>
+          <li>Recortes y formas especiales</li>
+          <li>Acero, galvanizado o inoxidable si procede</li>
+        </ul>
+      </div>
+
+      <aside class="hero-visual-card reveal" aria-label="Trabajos realizados con rejillas metálicas">
+        <div class="hero-work-carousel" data-home-work-carousel aria-label="Carrusel de trabajos realizados">
+          <div class="hero-work-track">
+            <figure class="hero-work-slide is-active">
+              <img src="/assets/img/trabajos/sector-aereo.webp" alt="Rejillas y plataformas metálicas para trabajos en industria aérea" width="1600" height="900" fetchpriority="high" />
+              <figcaption>
+                <span>Industria aérea</span>
+                <strong>Plataformas, escaleras y accesos de mantenimiento.</strong>
+              </figcaption>
+            </figure>
+            <figure class="hero-work-slide">
+              <img src="/assets/img/trabajos/sector-ferroviario.webp" alt="Rejillas metálicas para mantenimiento ferroviario" width="1600" height="900" loading="lazy" />
+              <figcaption>
+                <span>Industria ferroviaria</span>
+                <strong>Pasarelas, peldaños y zonas técnicas de inspección.</strong>
+              </figcaption>
+            </figure>
+            <figure class="hero-work-slide">
+              <img src="/assets/img/trabajos/sector-maritimo.webp" alt="Rejillas galvanizadas en entorno marítimo" width="1600" height="900" loading="lazy" />
+              <figcaption>
+                <span>Industria marítima</span>
+                <strong>Emparrillados preparados para humedad y exterior.</strong>
+              </figcaption>
+            </figure>
+            <figure class="hero-work-slide">
+              <img src="/assets/img/trabajos/sector-petroquimico.webp" alt="Rejillas industriales en planta petroquímica" width="1600" height="900" loading="lazy" />
+              <figcaption>
+                <span>Industria petroquímica</span>
+                <strong>Rejillas para operación, paso y mantenimiento industrial.</strong>
+              </figcaption>
+            </figure>
+          </div>
+          <button class="hero-work-arrow hero-work-arrow--prev" type="button" data-home-work-prev aria-label="Ver trabajo anterior">&lsaquo;</button>
+          <button class="hero-work-arrow hero-work-arrow--next" type="button" data-home-work-next aria-label="Ver trabajo siguiente">&rsaquo;</button>
+          <div class="hero-work-dots" data-home-work-dots aria-label="Seleccionar trabajo"></div>
+        </div>
+        <div class="hero-visual-detail">
+          <div id="heroProductPreview" class="hero-product-visual service-visual service-visual--electrowelded-twisted" aria-hidden="true"></div>
+          <div>
+            <strong>Rejilla adaptada al hueco real</strong>
+            <span>Medidas, apoyo, recortes, marco y acabado según necesidad.</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="trust-strip" aria-label="Resumen de servicio">
+    <div class="container trust-grid reveal">
+      <article><strong>1.</strong><span>Medidas, foto o plano.</span></article>
+      <article><strong>2.</strong><span>Uso, apoyo y acabado.</span></article>
+      <article><strong>3.</strong><span>Propuesta y presupuesto.</span></article>
+      <article><strong>4.</strong><span>Fabricación a medida.</span></article>
+    </div>
+  </section>
+
+  <section class="section compact-home-section">
+    <div class="container compact-home-grid">
+      <div class="compact-home-copy reveal">
+        <p class="eyebrow">Qué fabricamos</p>
+        <h2>Lo necesario para que la pieza encaje</h2>
+        <p>La web no intenta vender medidas cerradas. Cada rejilla se define según el hueco, el apoyo, el uso real y el entorno donde va instalada.</p>
+        <div class="mini-link-row">
+          <a href="/productos">Ver productos</a>
+          <a href="/rejillas-metalicas-a-medida">Rejillas a medida</a>
+          <a href="/tramex-a-medida">Tramex a medida</a>
+        </div>
+      </div>
+      <div class="compact-card-grid reveal" aria-label="Familias de fabricación">
+        <article><span>01</span><strong>Rejillas metálicas</strong><p>Para huecos existentes, registros, drenaje, ventilación o paso técnico.</p></article>
+        <article><span>02</span><strong>Tramex</strong><p>Emparrillados para plataformas, pasarelas, mantenimiento y reposición.</p></article>
+        <article><span>03</span><strong>Peldaños</strong><p>Peldaños de rejilla para escaleras industriales y accesos técnicos.</p></article>
+        <article><span>04</span><strong>Marcos y registros</strong><p>Conjuntos a medida cuando el apoyo o el remate de obra lo requiere.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="medida" class="section section-anchor positioning">
+    <div class="container section-grid">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Especialistas en adaptación</p>
+        <h2>Rejillas que no encajan en medidas estándar</h2>
+        <p>Adaptamos la pieza al hueco real: medidas, apoyos, recortes, marco, uso y acabado.</p>
+      </div>
+      <div class="solution-grid reveal">
+        <article>
+          <img class="solution-media" src="/assets/img/soluciones/huecos-existentes.svg" alt="Esquema de rejilla ajustada a un hueco existente" width="640" height="360" loading="lazy" />
+          <h3>Huecos existentes</h3>
+          <p>Rejillas fabricadas para medidas tomadas en obra, sustituciones o registros ya construidos.</p>
+        </article>
+        <article>
+          <img class="solution-media" src="/assets/img/soluciones/recortes-formas-especiales.svg" alt="Esquema de rejilla con recorte para tubo o pilar" width="640" height="360" loading="lazy" />
+          <h3>Recortes y formas especiales</h3>
+          <p>Ajustes para tubos, pilares, esquinas, arquetas, maquinaria o zonas con geometría irregular.</p>
+        </article>
+        <article>
+          <img class="solution-media" src="/assets/img/soluciones/paso-mantenimiento.svg" alt="Esquema de pasarela de rejilla para paso y mantenimiento" width="640" height="360" loading="lazy" />
+          <h3>Paso y mantenimiento</h3>
+          <p>Rejillas para tránsito de personas, zonas de inspección, pasarelas o accesos técnicos.</p>
+        </article>
+        <article>
+          <img class="solution-media" src="/assets/img/soluciones/peldanos-rejilla.svg" alt="Esquema de peldaños metálicos de rejilla" width="640" height="360" loading="lazy" />
+          <h3>Peldaños de rejilla</h3>
+          <p>Peldaños metálicos para escaleras industriales, definidos según apoyo y uso.</p>
+        </article>
+        <article>
+          <img class="solution-media" src="/assets/img/soluciones/marcos-registros.svg" alt="Esquema de marco y registro metálico con rejilla" width="640" height="360" loading="lazy" />
+          <h3>Marcos y registros</h3>
+          <p>Conjuntos de marco y rejilla cuando el apoyo o el remate de obra lo requiere.</p>
+        </article>
+        <article>
+          <img class="solution-media" src="/assets/img/soluciones/drenaje-ventilacion.svg" alt="Esquema de rejilla para drenaje y ventilación" width="640" height="360" loading="lazy" />
+          <h3>Drenaje y ventilación</h3>
+          <p>Rejillas para evacuar agua, cubrir canales, ventilar huecos o proteger pasos técnicos.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section process-home-section">
+    <div class="container compact-process">
+      <div class="reveal">
+        <p class="eyebrow">Cómo trabajamos</p>
+        <h2>Primero entender el hueco, después fabricar</h2>
+        <p>Cuantos más datos tengamos al principio, más rápido se puede orientar el presupuesto y menos riesgo hay de fabricar una pieza que no apoye como debe.</p>
+      </div>
+      <ol class="process-steps reveal">
+        <li><strong>1.</strong><span>Envías medidas en mm, foto, plano, croquis o muestra.</span></li>
+        <li><strong>2.</strong><span>Revisamos uso, apoyo, entorno, recortes y acabado.</span></li>
+        <li><strong>3.</strong><span>Te orientamos sobre la solución y presupuesto.</span></li>
+        <li><strong>4.</strong><span>Fabricamos la pieza a medida cuando el trabajo es viable.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="presupuesto" class="section section-anchor budget-section">
+    <div class="container budget-layout">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Presupuesto rápido</p>
+        <h2>Para presupuestar</h2>
+        <p>Normalmente basta con medidas, unidades, uso y una foto o plano del hueco.</p>
+        <a class="btn btn-primary" id="budgetEmailBtn" href="mailto:correo@rejimetal.com">Enviar datos por correo</a>
+      </div>
+
+      <div class="budget-card reveal">
+        <h3>Datos útiles</h3>
+        <ul class="check-list">
+          <li>Largo y ancho aproximados.</li>
+          <li>Número de unidades.</li>
+          <li>Uso: personas, vehículos, maquinaria, drenaje, ventilación o protección.</li>
+          <li>Entorno: interior, exterior, humedad o ambiente agresivo.</li>
+          <li>Acabado deseado: galvanizado, pintado, inoxidable u otro si procede.</li>
+          <li>Plano, croquis, foto o muestra antigua si existe.</li>
+          <li>Carga aproximada o tipo de tránsito.</li>
+        </ul>
+      </div>
+
+      <div class="quote-panel reveal">
+        <h3>Calculadora orientativa de superficie y peso</h3>
+        <p>Introduce las medidas en milímetros. La web aplica el peso de referencia del tipo seleccionado para preparar una consulta clara por correo.</p>
+        <form id="quick-calc-form" class="quick-calc-form">
+          <div class="quote-product-panel">
+            <div id="quoteProductPreview" class="quote-product-preview service-visual service-visual--grating"></div>
+            <div class="quote-product-copy">
+              <label>Tipo de rejilla
+                <select id="quoteProduct" name="quoteProduct" required></select>
+              </label>
+              <p id="quoteProductDescription">Selecciona una rejilla para ver una referencia visual del tipo de pieza.</p>
+            </div>
+          </div>
+          <label>Largo aproximado (mm)
+            <span class="input-unit"><input type="number" id="quoteLength" name="quoteLength" min="1" step="1" inputmode="numeric" required /><span>mm</span></span>
+          </label>
+          <label>Ancho aproximado (mm)
+            <span class="input-unit"><input type="number" id="quoteWidth" name="quoteWidth" min="1" step="1" inputmode="numeric" required /><span>mm</span></span>
+          </label>
+          <label>Unidades
+            <input type="number" id="quoteUnits" name="quoteUnits" min="1" step="1" inputmode="numeric" value="1" required />
+          </label>
+          <div class="quote-weight-card" aria-live="polite">
+            <span id="quoteWeightTitle">Peso total orientativo</span>
+            <strong id="quoteWeightReference">Pendiente</strong>
+            <small id="quoteWeightBasis">Calcula con medidas y unidades. La referencia kg/m² se aplica según el tipo de rejilla.</small>
+          </div>
+          <div class="quote-actions">
+            <button type="submit" class="btn btn-secondary">Calcular superficie y peso</button>
+            <button type="button" id="quoteEmail" class="btn btn-primary">Enviar cálculo por correo</button>
+          </div>
+          <p class="calc-result" id="calcResult" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto" class="section section-anchor contact">
+    <div class="container contact-layout">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Contacto</p>
+        <h2>Cuéntanos qué necesitas fabricar</h2>
+        <p>Puedes llamarnos o enviarnos un correo con medidas, foto o plano. Te orientaremos sobre la solución más adecuada.</p>
+        <div class="contact-buttons">
+          <a class="btn btn-secondary" href="tel:+34968597553">Llamar ahora</a>
+          <a class="btn btn-primary" id="contactEmailBudget" href="mailto:correo@rejimetal.com">Presupuesto por correo</a>
+          <a class="btn btn-link" href="https://www.google.com/maps/dir/?api=1&destination=Rejimetal%20S.L.%20de%20Murcia&travelmode=driving" target="_blank" rel="noopener noreferrer">Cómo llegar</a>
+          <button class="btn btn-link" id="copyAddressBtn" type="button">Copiar dirección</button>
+        </div>
+        <ul class="contact-list">
+          <li><strong>Teléfono:</strong> <a href="tel:+34968597553">+34 968 597 553</a></li>
+          <li><strong>Email:</strong> <a href="mailto:correo@rejimetal.com">correo@rejimetal.com</a></li>
+          <li><strong>Dirección:</strong> <span id="companyAddress">Carretera Cartagena-Alhama, Km 19, 30320 Fuente Álamo de Murcia</span></li>
+        </ul>
+      </div>
+
+      <div class="contact-panel reveal">
+        <form id="contact-form" class="contact-form">
+          <label>Nombre
+            <input type="text" name="name" autocomplete="name" required />
+          </label>
+          <label>Empresa
+            <input type="text" name="company" autocomplete="organization" />
+          </label>
+          <label>Teléfono
+            <input type="tel" name="phone" autocomplete="tel" />
+          </label>
+          <label>Email
+            <input type="email" name="email" autocomplete="email" required />
+          </label>
+          <label>Tipo de pieza
+            <select name="pieceType" required>
+              <option value="Rejilla metálica a medida">Rejilla metálica a medida</option>
+              <option value="Tramex a medida">Tramex a medida</option>
+              <option value="Rejilla con marco o registro">Rejilla con marco o registro</option>
+              <option value="Peldaño de rejilla metálica">Peldaño de rejilla metálica</option>
+              <option value="Rejilla para drenaje o ventilación">Rejilla para drenaje o ventilación</option>
+              <option value="Otra rejilla especial">Otra rejilla especial</option>
+            </select>
+          </label>
+          <label>Medidas aproximadas en mm
+            <input type="text" name="measures" />
+          </label>
+          <label>Unidades
+            <input type="number" name="units" min="1" step="1" value="1" />
+          </label>
+          <label>Uso o entorno
+            <input type="text" name="environment" />
+          </label>
+          <label class="field-full">Mensaje
+            <textarea name="message" rows="5" required></textarea>
+          </label>
+          <button type="submit" class="btn btn-primary">Preparar email</button>
+          <p class="form-note">En una web estática no se adjuntan archivos desde este formulario. Para enviar foto, plano o croquis, escribe directamente a correo@rejimetal.com.</p>
+          <p class="form-feedback" aria-live="polite"></p>
+        </form>
+      </div>
+
+      <div class="map-wrap contact-map reveal" data-map-wrap>
+        <iframe title="Ubicación REJIMETAL" data-cookie-src="https://www.google.com/maps?q=Rejimetal%20S.L.%20de%20Murcia&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="map-consent-placeholder" data-cookie-placeholder="maps">
+          <strong>Mapa bloqueado por privacidad</strong>
+          <p>Para ver el mapa integrado necesitamos tu permiso para cargar contenido externo de Google Maps.</p>
+          <div class="map-placeholder-actions">
+            <button type="button" class="btn btn-secondary" data-cookie-open>Configurar cookies</button>
+            <a class="btn btn-link" href="https://www.google.com/maps/dir/?api=1&destination=Rejimetal%20S.L.%20de%20Murcia&travelmode=driving" target="_blank" rel="noopener noreferrer">Abrir en Google Maps</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Fragment slot="scripts">
+    <script src="/assets/js/catalog-data.js" is:inline></script>
+    <script src="/assets/js/visuals.js" is:inline></script>
+  </Fragment>
+</Layout>

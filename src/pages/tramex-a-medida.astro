@@ -1,0 +1,131 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const ldJson = [
+  JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.rejimetal.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Tramex a medida", "item": "https://www.rejimetal.com/tramex-a-medida" }
+    ]
+  }),
+  JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Fabricación de tramex y emparrillados metálicos a medida",
+    "description": "Tramex y emparrillados metálicos para pasarelas, plataformas, mantenimiento y reposición.",
+    "serviceType": "Fabricación de tramex y emparrillados metálicos a medida",
+    "areaServed": { "@type": "AdministrativeArea", "name": "Región de Murcia" },
+    "provider": { "@id": "https://www.rejimetal.com/#empresa" }
+  })
+];
+---
+
+<Layout
+  title="Tramex a medida y emparrillados metálicos | REJIMETAL"
+  description="Fabricación de tramex y emparrillados metálicos a medida para pasarelas, plataformas, mantenimiento industrial, reposición y obra."
+  canonical="https://www.rejimetal.com/tramex-a-medida"
+  ogType="website"
+  ogTitle="Tramex a medida | Emparrillados metálicos | REJIMETAL"
+  ogDescription="Fabricación de tramex y emparrillados metálicos a medida para pasarelas, plataformas, mantenimiento y reposición."
+  ogUrl="https://www.rejimetal.com/tramex-a-medida"
+  ldJson={ldJson}
+  footerTagline="Tramex y emparrillados a medida"
+>
+  <section class="service-page-hero service-page-hero--compact">
+    <div class="container service-hero-grid">
+      <div>
+        <p class="eyebrow">Emparrillados metálicos</p>
+        <h1>Tramex a medida para paso y mantenimiento</h1>
+        <p>Fabricamos tramex y emparrillados metálicos adaptados al hueco, al apoyo y al uso real: plataformas, pasarelas, zonas técnicas, registros y reposiciones.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" id="serviceEmail" href="mailto:correo@rejimetal.com">Pedir presupuesto</a>
+          <a class="btn btn-secondary" href="/contacto">Enviar medidas o plano</a>
+        </div>
+      </div>
+      <aside class="service-side-note">
+        <strong>Trabajo a medida</strong>
+        <span>La pieza se define por medidas en mm, apoyo real, uso previsto, entorno y acabado.</span>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section service-detail-section">
+    <div class="container service-detail-grid">
+      <div class="service-detail-main">
+        <p class="eyebrow">Casos habituales</p>
+        <div class="service-card-grid">
+          <article>
+            <h3>Pasarelas y plataformas</h3>
+            <p>Piezas para tránsito técnico, zonas de inspección o mantenimiento, definidas por medida, apoyo y tránsito previsto.</p>
+          </article>
+          <article>
+            <h3>Reposición de tramex</h3>
+            <p>Sustitución de piezas antiguas cuando hay que respetar huecos existentes, marcos o apoyos ya construidos.</p>
+          </article>
+          <article>
+            <h3>Acabados según entorno</h3>
+            <p>Se revisa si procede acero, galvanizado, inoxidable u otro acabado según humedad, exterior o ambiente agresivo.</p>
+          </article>
+          <article>
+            <h3>Medidas especiales</h3>
+            <p>Tramex para dimensiones no estándar, recortes, marcos o piezas que deben integrarse en una instalación existente.</p>
+          </article>
+        </div>
+      </div>
+      <aside class="info-panel service-data-panel">
+        <h2>Información necesaria</h2>
+        <ul class="check-list">
+          <li>Medidas exteriores en mm.</li>
+          <li>Dimensiones del hueco y apoyo disponible.</li>
+          <li>Uso: paso de personas, mantenimiento, ventilación o registro.</li>
+          <li>Unidades.</li>
+          <li>Entorno y acabado deseado.</li>
+          <li>Foto, plano o croquis si existe.</li>
+          <li>Carga aproximada o tipo de tránsito.</li>
+        </ul>
+        <a class="btn btn-primary" href="/contacto">Contactar con REJIMETAL</a>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section service-process-section">
+    <div class="container compact-process">
+      <div>
+        <p class="eyebrow">Forma de trabajo</p>
+        <h2>Cómo lo definimos antes de fabricar</h2>
+        <p>Revisamos la información disponible, aclaramos el uso real y evitamos fabricar una pieza que luego no apoye bien o no responda al entorno.</p>
+      </div>
+      <ol class="process-steps">
+        <li><strong>1.</strong><span>Envías medidas, plano, croquis, foto o muestra.</span></li>
+        <li><strong>2.</strong><span>Se revisa hueco, apoyo, carga aproximada y acabado.</span></li>
+        <li><strong>3.</strong><span>Te orientamos y preparamos presupuesto.</span></li>
+        <li><strong>4.</strong><span>Fabricamos la pieza a medida cuando la solución es viable.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section faq-section">
+    <div class="container faq-layout">
+      <div>
+        <p class="eyebrow">Preguntas frecuentes</p>
+        <h2>Dudas antes de pedir precio</h2>
+      </div>
+      <div class="faq-list">
+        <details>
+          <summary>¿Tramex y rejilla metálica son lo mismo?</summary>
+          <p>En uso habitual se emplean como términos cercanos. En presupuesto conviene definir la geometría, malla, apoyo y uso para evitar confusiones.</p>
+        </details>
+        <details>
+          <summary>¿Se puede adaptar a un marco existente?</summary>
+          <p>Sí, se puede estudiar una pieza para un marco o apoyo ya instalado, siempre que se midan bien las cotas reales.</p>
+        </details>
+        <details>
+          <summary>¿El acabado se decide al final?</summary>
+          <p>El acabado se define durante la consulta, porque afecta al entorno, durabilidad, peso y coste de la pieza.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+</Layout>

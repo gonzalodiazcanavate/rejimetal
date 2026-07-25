@@ -1,0 +1,68 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const ldJson = [
+  JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.rejimetal.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Productos", "item": "https://www.rejimetal.com/productos" }
+    ]
+  })
+];
+---
+
+<Layout
+  title="Tipos de rejilla metálica a medida | REJIMETAL"
+  description="Consulta tipos de rejilla metálica fabricables a medida: electrosoldadas, prensadas, peldaños, marcos, registros, canaletas y piezas especiales."
+  canonical="https://www.rejimetal.com/productos"
+  ogType="website"
+  ogTitle="Tipos de rejilla metálica fabricables | REJIMETAL"
+  ogDescription="Consulta familias de rejillas metálicas y abre una referencia visual 3D para identificar la geometría antes de pedir presupuesto."
+  ogUrl="https://www.rejimetal.com/productos"
+  mainCss="/assets/css/product.css"
+  bodyClass="products-page"
+  ldJson={ldJson}
+  footerTagline="Familias de rejilla metálica fabricables a medida"
+>
+  <section id="productExplorer" class="section catalog-content product-explorer-section product-explorer-section--first product-explorer-section--compact">
+    <div class="container">
+      <header class="product-page-lead">
+        <div>
+          <p class="eyebrow">Productos</p>
+          <h1>Tipos de rejilla metálica fabricables</h1>
+        </div>
+        <p>Selecciona una familia para revisar variantes y abrir una referencia visual 3D. La pieza final se define siempre por medidas en mm, apoyo, uso, carga aproximada, entorno y acabado.</p>
+      </header>
+
+      <noscript>
+        <div class="noscript-products" aria-label="Familias de producto sin JavaScript">
+          <article><h2>Rejillas electrosoldadas</h2><p>Para paso, ventilación, registro y mantenimiento. Se definen malla, pletina, marco, apoyo y acabado.</p></article>
+          <article><h2>Rejillas prensadas</h2><p>Para piezas de acabado ordenado, huecos técnicos, reposiciones y usos donde conviene definir fleje y paso.</p></article>
+          <article><h2>Peldaños metálicos</h2><p>Peldaños de rejilla para escaleras industriales, reposición y accesos técnicos.</p></article>
+          <article><h2>Marcos y registros</h2><p>Conjuntos de marco y rejilla para arquetas, canales, huecos existentes y remates de obra.</p></article>
+        </div>
+      </noscript>
+
+      <div class="product-studio">
+        <aside class="product-family-panel">
+          <nav id="catalogFilters" class="catalog-filters catalog-filters--studio" aria-label="Filtrar familias de fabricación"></nav>
+        </aside>
+
+        <div class="product-stage">
+          <div id="productFeatured" class="product-featured" aria-live="polite"></div>
+          <div class="product-rail-wrap" aria-label="Variantes de la familia seleccionada">
+            <div id="catalogProductGrid" class="product-rail"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Fragment slot="scripts">
+    <script src="/assets/js/catalog-data.js" is:inline></script>
+    <script src="/assets/js/visuals.js" is:inline></script>
+    <script src="/assets/js/catalog-ui.js" is:inline></script>
+  </Fragment>
+</Layout>

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="Rejilla fabricada para un hueco existente">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#f9fcff"/><stop offset="1" stop-color="#e6eef7"/></linearGradient>
+    <linearGradient id="concrete" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#d9e3ec"/></linearGradient>
+    <linearGradient id="steel" x1="0" x2="1"><stop offset="0" stop-color="#f5f9fc"/><stop offset=".5" stop-color="#8393a1"/><stop offset="1" stop-color="#eaf1f6"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="18" stdDeviation="14" flood-color="#0f304f" flood-opacity=".18"/></filter>
+  </defs>
+  <rect width="640" height="360" fill="url(#bg)"/>
+  <g opacity=".42" stroke="#c8d8e8" stroke-width="1"><path d="M0 72h640M0 144h640M0 216h640M0 288h640M80 0v360M160 0v360M240 0v360M320 0v360M400 0v360M480 0v360M560 0v360"/></g>
+
+  <g filter="url(#shadow)">
+    <path d="M92 250 258 105h300L410 280H146Z" fill="url(#concrete)" stroke="#c8d5e1" stroke-width="4"/>
+    <path d="M178 230 286 132h188L382 244H216Z" fill="#0e2b45" opacity=".82"/>
+    <path d="M196 218 292 144h154L376 232H228Z" fill="#122f4b" opacity=".96"/>
+    <path d="M170 236 284 124h206L392 252H206Z" fill="none" stroke="#8c9ba8" stroke-width="10" stroke-linejoin="round"/>
+    <path d="M170 236 284 124h206L392 252H206Z" fill="none" stroke="#f8fbff" stroke-width="4" stroke-linejoin="round"/>
+  </g>
+
+  <g transform="translate(8 -18)" filter="url(#shadow)">
+    <path d="M154 236 292 130h210L402 252H206Z" fill="#dce6ee" stroke="#7c8c99" stroke-width="5"/>
+    <g stroke="url(#steel)" stroke-width="5" stroke-linecap="round">
+      <path d="M184 224 304 138M216 230 336 138M248 236 368 138M280 240 400 138M312 244 432 138M344 246 464 138"/>
+      <path d="M184 224h220M204 204h220M228 184h220M252 164h220M278 144h220"/>
+    </g>
+    <path d="M154 236 292 130h210L402 252H206Z" fill="none" stroke="#697985" stroke-width="8"/>
+  </g>
+
+  <g transform="translate(88 72)">
+    <rect x="0" y="0" width="116" height="16" rx="5" fill="#f5c64c" stroke="#b78a16" stroke-width="2"/>
+    <g stroke="#875d0d" stroke-width="2"><path d="M14 2v12M30 2v12M46 2v12M62 2v12M78 2v12M94 2v12"/></g>
+  </g>
+  <circle cx="514" cy="94" r="15" fill="#f4313f" opacity=".9"/>
+  <path d="M506 84 522 104M522 84 506 104" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+</svg>

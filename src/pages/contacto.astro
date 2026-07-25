@@ -1,0 +1,85 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const ldJson = [
+  JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.rejimetal.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Contacto", "item": "https://www.rejimetal.com/contacto" }
+    ]
+  })
+];
+---
+
+<Layout
+  title="Contacto REJIMETAL | Presupuesto de rejillas metálicas a medida"
+  description="Contacta con REJIMETAL en Fuente Álamo de Murcia para pedir presupuesto de rejillas metálicas a medida. Envía medidas en mm, foto, plano o croquis."
+  canonical="https://www.rejimetal.com/contacto"
+  ogType="website"
+  ogTitle="Contacto | REJIMETAL"
+  ogDescription="Pide presupuesto de rejillas metálicas a medida por correo o teléfono."
+  ogUrl="https://www.rejimetal.com/contacto"
+  ldJson={ldJson}
+  footerTagline="correo@rejimetal.com"
+>
+  <section class="section contact contact-page contact-page--first">
+    <div class="container contact-layout contact-layout--page">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Contacto</p>
+        <h1>Cuéntanos qué necesitas fabricar</h1>
+        <p>Puedes llamarnos o enviarnos un correo con medidas en mm, foto o plano. Te orientaremos sobre la solución más adecuada.</p>
+        <div class="contact-buttons">
+          <a class="btn btn-secondary" href="tel:+34968597553">Llamar ahora</a>
+          <a class="btn btn-primary" id="contactEmailBudget" href="mailto:correo@rejimetal.com">Presupuesto por correo</a>
+          <a class="btn btn-link" href="https://www.google.com/maps/dir/?api=1&destination=Rejimetal%20S.L.%20de%20Murcia&travelmode=driving" target="_blank" rel="noopener noreferrer">Cómo llegar</a>
+          <button class="btn btn-link" id="copyAddressBtn" type="button">Copiar dirección</button>
+        </div>
+        <ul class="contact-list">
+          <li><strong>Teléfono:</strong> <a href="tel:+34968597553">+34 968 597 553</a></li>
+          <li><strong>Email:</strong> <a href="mailto:correo@rejimetal.com">correo@rejimetal.com</a></li>
+          <li><strong>Dirección:</strong> <span id="companyAddress">Carretera Cartagena-Alhama, Km 19, 30320 Fuente Álamo de Murcia</span></li>
+        </ul>
+      </div>
+
+      <div class="contact-panel reveal">
+        <form id="contact-form" class="contact-form">
+          <label>Nombre<input type="text" name="name" autocomplete="name" required /></label>
+          <label>Empresa<input type="text" name="company" autocomplete="organization" /></label>
+          <label>Teléfono<input type="tel" name="phone" autocomplete="tel" /></label>
+          <label>Email<input type="email" name="email" autocomplete="email" required /></label>
+          <label>Tipo de pieza
+            <select name="pieceType" required>
+              <option value="Rejilla metálica a medida">Rejilla metálica a medida</option>
+              <option value="Tramex a medida">Tramex a medida</option>
+              <option value="Rejilla con marco o registro">Rejilla con marco o registro</option>
+              <option value="Peldaño de rejilla metálica">Peldaño de rejilla metálica</option>
+              <option value="Rejilla para drenaje o ventilación">Rejilla para drenaje o ventilación</option>
+              <option value="Otra rejilla especial">Otra rejilla especial</option>
+            </select>
+          </label>
+          <label>Medidas aproximadas en mm<input type="text" name="measures" /></label>
+          <label>Unidades<input type="number" name="units" min="1" step="1" value="1" /></label>
+          <label>Uso o entorno<input type="text" name="environment" /></label>
+          <label class="field-full">Mensaje<textarea name="message" rows="5" required></textarea></label>
+          <button type="submit" class="btn btn-primary">Preparar email</button>
+          <p class="form-note">En una web estática no se adjuntan archivos desde este formulario. Para enviar foto, plano o croquis, escribe directamente a correo@rejimetal.com.</p>
+          <p class="form-feedback" aria-live="polite"></p>
+        </form>
+      </div>
+
+      <div class="map-wrap contact-map reveal" data-map-wrap>
+        <iframe title="Ubicación REJIMETAL" data-cookie-src="https://www.google.com/maps?q=Rejimetal%20S.L.%20de%20Murcia&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="map-consent-placeholder" data-cookie-placeholder="maps">
+          <strong>Mapa bloqueado por privacidad</strong>
+          <p>Para ver el mapa integrado necesitamos tu permiso para cargar contenido externo de Google Maps.</p>
+          <div class="map-placeholder-actions">
+            <button type="button" class="btn btn-secondary" data-cookie-open>Configurar cookies</button>
+            <a class="btn btn-link" href="https://www.google.com/maps/dir/?api=1&destination=Rejimetal%20S.L.%20de%20Murcia&travelmode=driving" target="_blank" rel="noopener noreferrer">Abrir en Google Maps</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

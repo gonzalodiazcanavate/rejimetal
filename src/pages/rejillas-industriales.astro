@@ -1,0 +1,131 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const ldJson = [
+  JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.rejimetal.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Rejillas industriales", "item": "https://www.rejimetal.com/rejillas-industriales" }
+    ]
+  }),
+  JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Fabricación de rejillas industriales a medida",
+    "description": "Rejillas industriales para obra, mantenimiento, registros, drenaje, ventilación y reposición.",
+    "serviceType": "Fabricación de rejillas industriales a medida",
+    "areaServed": { "@type": "AdministrativeArea", "name": "Región de Murcia" },
+    "provider": { "@id": "https://www.rejimetal.com/#empresa" }
+  })
+];
+---
+
+<Layout
+  title="Rejillas industriales a medida | REJIMETAL"
+  description="Rejillas industriales fabricadas a medida para obra, mantenimiento, registros, drenaje, ventilación, paso técnico y reposición."
+  canonical="https://www.rejimetal.com/rejillas-industriales"
+  ogType="website"
+  ogTitle="Rejillas industriales a medida | REJIMETAL"
+  ogDescription="Rejillas industriales fabricadas a medida para obra, mantenimiento, registros, drenaje, ventilación y reposición."
+  ogUrl="https://www.rejimetal.com/rejillas-industriales"
+  ldJson={ldJson}
+  footerTagline="Rejillas industriales fabricadas a medida"
+>
+  <section class="service-page-hero service-page-hero--compact">
+    <div class="container service-hero-grid">
+      <div>
+        <p class="eyebrow">Industria, obra y mantenimiento</p>
+        <h1>Rejillas industriales para uso real, no para medidas teóricas</h1>
+        <p>En industria y obra muchas rejillas deben adaptarse a huecos existentes, tráfico, humedad, registros o mantenimiento. REJIMETAL estudia cada pieza según uso, apoyo y acabado.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" id="serviceEmail" href="mailto:correo@rejimetal.com">Pedir presupuesto</a>
+          <a class="btn btn-secondary" href="/contacto">Enviar medidas o plano</a>
+        </div>
+      </div>
+      <aside class="service-side-note">
+        <strong>Trabajo a medida</strong>
+        <span>La pieza se define por medidas en mm, apoyo real, uso previsto, entorno y acabado.</span>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section service-detail-section">
+    <div class="container service-detail-grid">
+      <div class="service-detail-main">
+        <p class="eyebrow">Casos habituales</p>
+        <div class="service-card-grid">
+          <article>
+            <h3>Registros y arquetas</h3>
+            <p>Rejillas para cubrir huecos, registros, canales o arquetas con medidas y apoyo definidos.</p>
+          </article>
+          <article>
+            <h3>Drenaje y ventilación</h3>
+            <p>Piezas para evacuar agua, permitir ventilación o proteger pasos técnicos sin cerrar el hueco.</p>
+          </article>
+          <article>
+            <h3>Mantenimiento industrial</h3>
+            <p>Rejillas para zonas de inspección, pasarelas, accesos o reposición de piezas existentes.</p>
+          </article>
+          <article>
+            <h3>Obra y comunidad</h3>
+            <p>Soluciones para huecos de obra, cerramientos, accesos, tapas y puntos donde una pieza estándar no ajusta.</p>
+          </article>
+        </div>
+      </div>
+      <aside class="info-panel service-data-panel">
+        <h2>Qué hay que definir</h2>
+        <ul class="check-list">
+          <li>Medidas en mm y geometría del hueco.</li>
+          <li>Tipo de tránsito o carga aproximada.</li>
+          <li>Apoyos reales y necesidad de marco.</li>
+          <li>Entorno: interior, exterior, humedad o corrosión.</li>
+          <li>Función: paso, drenaje, ventilación, protección o registro.</li>
+          <li>Unidades y urgencia aproximada.</li>
+          <li>Foto, plano, croquis o muestra.</li>
+        </ul>
+        <a class="btn btn-primary" href="/contacto">Contactar con REJIMETAL</a>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section service-process-section">
+    <div class="container compact-process">
+      <div>
+        <p class="eyebrow">Forma de trabajo</p>
+        <h2>Cómo lo definimos antes de fabricar</h2>
+        <p>Revisamos la información disponible, aclaramos el uso real y evitamos fabricar una pieza que luego no apoye bien o no responda al entorno.</p>
+      </div>
+      <ol class="process-steps">
+        <li><strong>1.</strong><span>Envías medidas, plano, croquis, foto o muestra.</span></li>
+        <li><strong>2.</strong><span>Se revisa hueco, apoyo, carga aproximada y acabado.</span></li>
+        <li><strong>3.</strong><span>Te orientamos y preparamos presupuesto.</span></li>
+        <li><strong>4.</strong><span>Fabricamos la pieza a medida cuando la solución es viable.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section faq-section">
+    <div class="container faq-layout">
+      <div>
+        <p class="eyebrow">Preguntas frecuentes</p>
+        <h2>Dudas antes de pedir precio</h2>
+      </div>
+      <div class="faq-list">
+        <details>
+          <summary>¿Una rejilla industrial necesita siempre marco?</summary>
+          <p>No siempre. Depende del apoyo, del remate de obra y de cómo se vaya a instalar o retirar la pieza.</p>
+        </details>
+        <details>
+          <summary>¿Se puede fabricar para un canal o arqueta existente?</summary>
+          <p>Sí, es uno de los casos habituales: se toman medidas del hueco, apoyo y entorno, y se define la pieza.</p>
+        </details>
+        <details>
+          <summary>¿El peso calculado en web es definitivo?</summary>
+          <p>No. Es orientativo. El peso final se confirma al definir malla, pletina, marco, recortes y acabado.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+</Layout>

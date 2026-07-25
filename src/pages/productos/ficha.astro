@@ -1,0 +1,75 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout
+  title="Ficha visual 3D de rejilla metálica a medida | REJIMETAL"
+  description="Referencia visual 3D de una pieza de rejilla metálica fabricable a medida. Las dimensiones, carga, apoyo y acabado se confirman caso a caso."
+  canonical="https://www.rejimetal.com/productos/ficha"
+  robots="noindex,follow"
+  mainCss="/assets/css/product.css"
+  bodyClass="ficha-page"
+  footerTagline="Ficha de apoyo para consulta técnica"
+>
+  <section class="ficha-hero ficha-hero--compact">
+    <div class="container ficha-hero-grid">
+      <div>
+        <p class="eyebrow">Referencia visual de fabricación</p>
+        <h1 id="fichaProductName">Rejilla metálica a medida</h1>
+        <p id="fichaProductDescription">Cargando datos de fabricación.</p>
+        <div class="hero-meta">
+          <span>Familia: <strong id="fichaCategory">Rejilla metálica</strong></span>
+          <span>Medidas, apoyo y acabado a definir</span>
+        </div>
+      </div>
+      <div id="fichaVisual" class="product-visual product-visual--grating" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <section class="container ficha-grid">
+    <article class="viewer-panel">
+      <div class="viewer-header">
+        <h2>Ayuda visual 3D</h2>
+        <div class="viewer-tools">
+          <button class="tool-btn" data-material="steel">Acero</button>
+          <button class="tool-btn" data-material="galvanized">Galvanizado</button>
+          <button class="tool-btn" data-material="inox">Inox</button>
+          <button class="tool-btn" id="toggleWireframe">Líneas</button>
+          <button class="tool-btn is-active" id="toggleRotate">Giro</button>
+        </div>
+      </div>
+      <div class="viewer-wrap">
+        <canvas id="viewerCanvas" aria-label="Representación 3D orientativa de la rejilla"></canvas>
+        <div class="viewer-fallback" id="viewerFallback">
+          <strong>Representación orientativa</strong>
+          <span>Si el navegador no carga el 3D, esta ficha sigue siendo válida para identificar la familia de pieza.</span>
+        </div>
+        <p class="viewer-hint">Arrastra para girar · Rueda para acercar</p>
+      </div>
+    </article>
+
+    <aside class="spec-panel">
+      <h2>Datos a confirmar</h2>
+      <ul id="fichaSpecs" class="spec-list"></ul>
+      <p id="fichaNotes" class="helper-text">La representación ayuda a identificar la pieza. Las dimensiones, carga, apoyo y acabado se revisan caso por caso.</p>
+    </aside>
+  </section>
+
+  <section class="container actions-panel">
+    <h2>Solicitar presupuesto de esta pieza</h2>
+    <div class="actions-grid">
+      <button type="button" id="btnMailProduct" class="action-btn mail">Preparar correo</button>
+      <button type="button" id="btnPrintProduct" class="action-btn">Imprimir ficha</button>
+    </div>
+    <p class="helper-text">Para presupuestar con criterio, envía medidas en mm, unidades, uso, entorno y una foto, plano, croquis o muestra si existe.</p>
+  </section>
+
+  <Fragment slot="scripts">
+    <script src="/assets/js/catalog-data.js" is:inline></script>
+    <script src="/assets/js/visuals.js" is:inline></script>
+    <script src="/assets/js/product-page.js" is:inline></script>
+    <script src="/assets/vendor/three/three.r128.min.js" is:inline></script>
+    <script src="/assets/vendor/three/OrbitControls.r128.js" is:inline></script>
+    <script src="/assets/js/product-3d.js" is:inline></script>
+  </Fragment>
+</Layout>

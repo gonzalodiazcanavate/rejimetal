@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="Pasarela de rejilla para paso y mantenimiento">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#f9fcff"/><stop offset="1" stop-color="#e5edf6"/></linearGradient>
+    <linearGradient id="steel" x1="0" x2="1"><stop offset="0" stop-color="#f7fbff"/><stop offset=".5" stop-color="#8798a5"/><stop offset="1" stop-color="#e9f0f6"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="18" stdDeviation="13" flood-color="#0f304f" flood-opacity=".18"/></filter>
+  </defs>
+  <rect width="640" height="360" fill="url(#bg)"/>
+  <g opacity=".42" stroke="#c8d8e8" stroke-width="1"><path d="M0 72h640M0 144h640M0 216h640M0 288h640M80 0v360M160 0v360M240 0v360M320 0v360M400 0v360M480 0v360M560 0v360"/></g>
+
+  <g opacity=".8">
+    <rect x="76" y="78" width="110" height="165" rx="8" fill="#d5dee7" stroke="#a7b6c3" stroke-width="3"/>
+    <rect x="454" y="62" width="112" height="185" rx="8" fill="#d5dee7" stroke="#a7b6c3" stroke-width="3"/>
+    <g stroke="#b8c6d2" stroke-width="3"><path d="M88 110h86M88 140h86M88 170h86M88 200h86M466 98h86M466 132h86M466 166h86M466 200h86"/></g>
+  </g>
+
+  <g filter="url(#shadow)">
+    <path d="M116 260 252 126h310L430 282H178Z" fill="#dce6ef" stroke="#778896" stroke-width="5"/>
+    <g stroke="url(#steel)" stroke-width="5" stroke-linecap="round">
+      <path d="M148 244 266 136M180 252 298 136M212 258 330 136M244 264 362 136M276 268 394 136M308 270 426 136M340 272 458 136M372 272 490 136M404 270 522 136"/>
+      <path d="M146 242h310M172 220h310M198 198h310M224 176h310M250 154h310"/>
+    </g>
+    <path d="M116 260 252 126h310L430 282H178Z" fill="none" stroke="#697985" stroke-width="8"/>
+  </g>
+
+  <g fill="none" stroke="#144f91" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M146 220V126M216 206V112M286 190V96M512 190V86"/>
+    <path d="M146 126 286 96 512 86"/>
+    <path d="M146 168 286 140 512 132" opacity=".72"/>
+  </g>
+  <g fill="#f4313f">
+    <circle cx="356" cy="112" r="14"/>
+    <path d="M348 128h16l8 52h-32Z"/>
+    <path d="M342 178h12l-12 42h-12ZM366 178h12l18 38h-13Z"/>
+  </g>
+</svg>

@@ -1,0 +1,44 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const ldJson = [
+  JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.rejimetal.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Quiénes somos", "item": "https://www.rejimetal.com/quienes-somos" }
+    ]
+  })
+];
+---
+
+<Layout
+  title="REJIMETAL | Fabricación de rejillas metálicas desde 1992"
+  description="Desde 1992 fabricamos y comercializamos emparrillados, tramex y rejillas metálicas a medida para industria, obra y mantenimiento."
+  canonical="https://www.rejimetal.com/quienes-somos"
+  ldJson={ldJson}
+>
+  <section class="section about-story-page about-story-page--first">
+    <div class="container about-page-layout">
+      <div class="about-main-column">
+        <article class="story-card story-card--editorial reveal">
+          <div class="story-card-content">
+            <h1 class="story-title">Transformando acero en soluciones</h1>
+            <p class="story-lead">Desde el año 1992 fabricamos y comercializamos emparrillados y productos metálicos.</p>
+            <p>Con el tiempo, ese trabajo diario se ha convertido en experiencia: rejillas metálicas, tramex, peldaños, marcos y soluciones adaptadas a cada instalación. No todos los encargos llegan con un plano perfecto. A veces hay una pieza antigua que sustituir, un hueco que no está escuadrado, una medida que no existe en catálogo o una obra que necesita una respuesta práctica.</p>
+            <p>La confianza de nuestros clientes se ha construido así, encargo a encargo. Grandes empresas, pequeñas y medianas industrias, comercios intermediarios y usuarios directos nos consultan porque necesitan una pieza que funcione, que apoye bien y que esté pensada para su uso real.</p>
+            <p>Seguimos creciendo e invirtiendo para mejorar competitividad y eficiencia, pero manteniendo una forma de trabajar cercana: revisar las medidas, entender el entorno, valorar el acabado y proponer una solución coherente. Nuestro objetivo es fabricar emparrillados que sean útiles, bien definidos y ajustados a la necesidad de cada cliente.</p>
+            <p>Cuando una rejilla no encaja en una medida estándar, la experiencia se nota. Se nota en cómo se toma una cota, en cómo se interpreta un apoyo, en cómo se evita un problema antes de fabricar y en cómo se busca una solución con garantías operativas.</p>
+          </div>
+          <figure class="story-image-integrated">
+            <picture>
+              <source srcset="/assets/img/rejimetal-fachada-corporativa.webp" type="image/webp" />
+              <img src="/assets/img/rejimetal-fachada-corporativa.png" alt="Fachada de las instalaciones de REJIMETAL" loading="eager" />
+            </picture>
+          </figure>
+        </article>
+      </div>
+    </div>
+  </section>
+</Layout>
