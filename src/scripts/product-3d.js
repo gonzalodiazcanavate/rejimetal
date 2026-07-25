@@ -18,7 +18,8 @@ const defaultConfig = {
   defaultMaterial: 'steel'
 };
 
-const config = Object.assign({}, defaultConfig, window.PRODUCT_3D_CONFIG || {});
+export function initViewer(productConfig) {
+const config = Object.assign({}, defaultConfig, productConfig || {});
 
 const canvas = document.getElementById('viewerCanvas');
 const materialButtons = Array.from(document.querySelectorAll('[data-material]'));
@@ -563,3 +564,4 @@ if (printBtn) {
     window.print();
   });
 }
+} // end initViewer

@@ -1,4 +1,4 @@
-window.REJIMETAL_PRODUCTS = [
+export const PRODUCTS = [
   {
     id: 'rejilla-electrosoldada-cuadradillo-entregirado',
     name: 'Rejilla electrosoldada con cuadradillo entregirado',
@@ -149,7 +149,7 @@ window.REJIMETAL_PRODUCTS = [
     modelType: 'grating',
     visualType: 'pressed-wave',
     summary: 'Rejilla prensada con dentado ondulado, adecuada cuando se busca agarre y una geometría ordenada.',
-    use: 'cubriciones, pasos técnicos, registros y zonas donde se necesita adherencia adicional.',
+    use: 'Cubriciones, pasos técnicos, registros y zonas donde se necesita adherencia adicional.',
     adapts: 'Dentado, flejes, malla, medida, marco, recorte y acabado.',
     budgetData: ['Medidas', 'Uso previsto', 'Entorno', 'Unidades', 'Foto o croquis'],
     config: { modelType: 'grating', width: 1.95, depth: 0.95, barHeight: 0.036, barThickness: 0.025, crossThickness: 0.02, bars: 15, crosses: 20, frameThickness: 0.04, defaultMaterial: 'galvanized', pressed: true, dentado: true },
@@ -162,11 +162,11 @@ window.REJIMETAL_PRODUCTS = [
     modelType: 'grating',
     visualType: 'pressed-equal',
     summary: 'Rejilla prensada con flejes de sección igual para soluciones de ventilación, protección o cubrición técnica.',
-    use: 'Rejillas de registro, protecciónes, ventilación, cerramientos y huecos con geometría definida.',
+    use: 'Rejillas de registro, protecciones, ventilación, cerramientos y huecos con geometría definida.',
     adapts: 'Malla, medida, fleje, marco, recortes y acabado.',
     budgetData: ['Medidas', 'Uso', 'Hueco o marco', 'Unidades', 'Acabado'],
     config: { modelType: 'grating', width: 1.9, depth: 0.95, barHeight: 0.032, barThickness: 0.022, crossThickness: 0.022, bars: 14, crosses: 20, frameThickness: 0.04, defaultMaterial: 'steel', pressed: true },
-    specs: [['Pieza', 'Prensada de flejes iguales'], ['Uso habitual', 'ventilación, protección o registro'], ['Se define', 'Fleje, malla, medida y acabado'], ['Datos necesarios', 'Medidas, uso y unidades']]
+    specs: [['Pieza', 'Prensada de flejes iguales'], ['Uso habitual', 'Ventilación, protección o registro'], ['Se define', 'Fleje, malla, medida y acabado'], ['Datos necesarios', 'Medidas, uso y unidades']]
   },
   {
     id: 'rejilla-prensada-flejes-iguales-dentado-sierra',
@@ -252,7 +252,7 @@ window.REJIMETAL_PRODUCTS = [
     category: 'Alcorque',
     modelType: 'tree',
     visualType: 'tree',
-    summary: 'Alcorque metálico de rejilla para proteger el hueco del árbol y permitir paso, Drenaje y ventilación.',
+    summary: 'Alcorque metálico de rejilla para proteger el hueco del árbol y permitir paso, drenaje y ventilación.',
     use: 'Urbanización, patios, zonas exteriores, reposición de alcorques y huecos existentes.',
     adapts: 'Medida exterior, hueco central, marco, división en piezas, apoyo y acabado.',
     budgetData: ['Medida exterior', 'Hueco central', 'Foto del hueco', 'Unidades', 'Acabado'],
@@ -274,89 +274,73 @@ window.REJIMETAL_PRODUCTS = [
   }
 ];
 
-window.REJIMETAL_CATEGORIES = [
-  'Electrosoldada',
-  'Prensada',
-  'Manual',
-  'Peldaños',
-  'Alcorque',
-  'Canaleta'
-];
+const STEEL_DENSITY_KG_M3 = 7850;
+const DEFAULT_NOTE = 'Peso orientativo para preparar presupuesto. Se ajusta al confirmar malla, pletina, marco, recortes y acabado.';
 
-(function () {
-  const STEEL_DENSITY_KG_M3 = 7850;
-  const DEFAULT_NOTE = 'Peso orientativo para preparar presupuesto. Se ajusta al confirmar malla, pletina, marco, recortes y acabado.';
-  const mm = function (value) {
-    return Number(value || 0) / 1000;
-  };
-  const roundOneDecimal = function (value) {
-    return Math.round(value * 10) / 10;
-  };
-  const crossAreaM2 = function (profile) {
-    const size = mm(profile.crossSizeMm);
-    if (profile.crossType === 'round') {
-      return Math.PI * Math.pow(size / 2, 2);
-    }
-    if (profile.crossType === 'flat') {
-      return mm(profile.crossHeightMm) * mm(profile.crossThicknessMm);
-    }
-    return size * size;
-  };
-  const profileWeightKgM2 = function (profile) {
-    const bearing = STEEL_DENSITY_KG_M3 * ((mm(profile.bearingHeightMm) * mm(profile.bearingThicknessMm)) / mm(profile.bearingPitchMm));
-    const cross = STEEL_DENSITY_KG_M3 * (crossAreaM2(profile) / mm(profile.crossPitchMm));
-    const extras = Number(profile.extraKgM2 || 0) + Number(profile.serratedExtraKgM2 || 0);
-    return roundOneDecimal(bearing + cross + extras);
-  };
-  const basisText = function (profile) {
-    const crossLabel = profile.crossType === 'round'
-      ? 'varilla Ø' + profile.crossSizeMm + ' mm'
-      : profile.crossType === 'flat'
-        ? 'fleje ' + profile.crossHeightMm + 'x' + profile.crossThicknessMm + ' mm'
-        : 'cuadradillo ' + profile.crossSizeMm + ' mm';
-    return 'Referencia: pletina ' + profile.bearingHeightMm + 'x' + profile.bearingThicknessMm + ' mm cada ' + profile.bearingPitchMm + ' mm, ' + crossLabel + ' cada ' + profile.crossPitchMm + ' mm.';
-  };
+const mm = (value) => Number(value || 0) / 1000;
+const roundOneDecimal = (value) => Math.round(value * 10) / 10;
 
-  const profiles = {
-    'rejilla-electrosoldada-cuadradillo-entregirado': { bearingHeightMm: 30, bearingThicknessMm: 3, bearingPitchMm: 34, crossType: 'square', crossSizeMm: 6, crossPitchMm: 100, extraKgM2: 4.0 },
-    'rejilla-electrosoldada-varilla-lisa': { bearingHeightMm: 30, bearingThicknessMm: 2, bearingPitchMm: 34, crossType: 'round', crossSizeMm: 5, crossPitchMm: 100, extraKgM2: 3.0 },
-    'rejilla-electrosoldada-perfil-proteccion': { bearingHeightMm: 30, bearingThicknessMm: 3, bearingPitchMm: 34, crossType: 'square', crossSizeMm: 6, crossPitchMm: 100, extraKgM2: 6.5 },
-    'rejilla-electrosoldada-dentado-ondulado': { bearingHeightMm: 30, bearingThicknessMm: 3, bearingPitchMm: 34, crossType: 'square', crossSizeMm: 6, crossPitchMm: 100, extraKgM2: 4.5, serratedExtraKgM2: 0.8 },
-    'rejilla-electrosoldada-dentado-ondulado-perfil': { bearingHeightMm: 30, bearingThicknessMm: 3, bearingPitchMm: 34, crossType: 'square', crossSizeMm: 6, crossPitchMm: 100, extraKgM2: 7.0, serratedExtraKgM2: 0.8 },
-    'rejilla-electrosoldada-dentado-sierra-discontinuo': { bearingHeightMm: 35, bearingThicknessMm: 3, bearingPitchMm: 34, crossType: 'square', crossSizeMm: 6, crossPitchMm: 100, extraKgM2: 4.5, serratedExtraKgM2: 0.8 },
-    'rejilla-electrosoldada-dentado-sierra-discontinuo-perfil': { bearingHeightMm: 35, bearingThicknessMm: 3, bearingPitchMm: 34, crossType: 'square', crossSizeMm: 6, crossPitchMm: 100, extraKgM2: 7.0, serratedExtraKgM2: 0.8 },
-    'rejilla-electrosoldada-tipo-offshore': { bearingHeightMm: 30, bearingThicknessMm: 3, bearingPitchMm: 30, crossType: 'square', crossSizeMm: 5, crossPitchMm: 50, extraKgM2: 5.0 },
-    'rejilla-electrosoldada-tipo-offshore-seguridad': { bearingHeightMm: 35, bearingThicknessMm: 3, bearingPitchMm: 30, crossType: 'square', crossSizeMm: 5, crossPitchMm: 50, extraKgM2: 6.5, serratedExtraKgM2: 0.9 },
-    'rejilla-prensada-flejes-diferentes': { bearingHeightMm: 25, bearingThicknessMm: 2, bearingPitchMm: 30, crossType: 'flat', crossHeightMm: 20, crossThicknessMm: 2, crossPitchMm: 100, extraKgM2: 3.0 },
-    'rejilla-prensada-flejes-diferentes-dentado-sierra': { bearingHeightMm: 30, bearingThicknessMm: 2, bearingPitchMm: 30, crossType: 'flat', crossHeightMm: 20, crossThicknessMm: 2, crossPitchMm: 100, extraKgM2: 3.5, serratedExtraKgM2: 0.8 },
-    'rejilla-prensada-flejes-diferentes-dentado-ondulado': { bearingHeightMm: 30, bearingThicknessMm: 2, bearingPitchMm: 30, crossType: 'flat', crossHeightMm: 20, crossThicknessMm: 2, crossPitchMm: 100, extraKgM2: 3.2, serratedExtraKgM2: 0.6 },
-    'rejilla-prensada-flejes-iguales': { bearingHeightMm: 25, bearingThicknessMm: 2, bearingPitchMm: 30, crossType: 'flat', crossHeightMm: 25, crossThicknessMm: 2, crossPitchMm: 50, extraKgM2: 3.0 },
-    'rejilla-prensada-flejes-iguales-dentado-sierra': { bearingHeightMm: 30, bearingThicknessMm: 2, bearingPitchMm: 30, crossType: 'flat', crossHeightMm: 30, crossThicknessMm: 2, crossPitchMm: 50, extraKgM2: 3.2, serratedExtraKgM2: 0.8 },
-    'rejilla-prensada-flejes-iguales-dentado-ondulado': { bearingHeightMm: 30, bearingThicknessMm: 2, bearingPitchMm: 30, crossType: 'flat', crossHeightMm: 30, crossThicknessMm: 2, crossPitchMm: 50, extraKgM2: 3.0, serratedExtraKgM2: 0.6 },
-    'rejilla-metalica-manual': { bearingHeightMm: 30, bearingThicknessMm: 3, bearingPitchMm: 30, crossType: 'square', crossSizeMm: 6, crossPitchMm: 80, extraKgM2: 6.0 },
-    'peldano-rejilla-para-apoyar': { bearingHeightMm: 30, bearingThicknessMm: 3, bearingPitchMm: 30, crossType: 'square', crossSizeMm: 6, crossPitchMm: 80, extraKgM2: 12.0, serratedExtraKgM2: 0.8 },
-    'peldano-rejilla-para-soldar': { bearingHeightMm: 30, bearingThicknessMm: 3, bearingPitchMm: 30, crossType: 'square', crossSizeMm: 6, crossPitchMm: 90, extraKgM2: 10.0, serratedExtraKgM2: 0.8 },
-    'peldano-rejilla-para-atornillar': { bearingHeightMm: 30, bearingThicknessMm: 3, bearingPitchMm: 30, crossType: 'square', crossSizeMm: 6, crossPitchMm: 80, extraKgM2: 13.0, serratedExtraKgM2: 0.8 },
-    'alcorque-metalico-rejilla': { bearingHeightMm: 25, bearingThicknessMm: 3, bearingPitchMm: 40, crossType: 'square', crossSizeMm: 6, crossPitchMm: 80, extraKgM2: 7.0 },
-    'canaleta-drenaje-rejilla-metalica': { bearingHeightMm: 30, bearingThicknessMm: 3, bearingPitchMm: 30, crossType: 'square', crossSizeMm: 6, crossPitchMm: 100, extraKgM2: 10.0 }
-  };
+const crossAreaM2 = (profile) => {
+  const size = mm(profile.crossSizeMm);
+  if (profile.crossType === 'round') return Math.PI * (size / 2) ** 2;
+  if (profile.crossType === 'flat') return mm(profile.crossHeightMm) * mm(profile.crossThicknessMm);
+  return size * size;
+};
 
-  Object.keys(profiles).forEach(function (id) {
-    profiles[id].kgM2 = profileWeightKgM2(profiles[id]);
-    profiles[id].basis = basisText(profiles[id]);
-    profiles[id].note = DEFAULT_NOTE;
-  });
+const profileWeightKgM2 = (profile) => {
+  const bearing = STEEL_DENSITY_KG_M3 * ((mm(profile.bearingHeightMm) * mm(profile.bearingThicknessMm)) / mm(profile.bearingPitchMm));
+  const cross = STEEL_DENSITY_KG_M3 * (crossAreaM2(profile) / mm(profile.crossPitchMm));
+  const extras = Number(profile.extraKgM2 || 0) + Number(profile.serratedExtraKgM2 || 0);
+  return roundOneDecimal(bearing + cross + extras);
+};
 
-  window.REJIMETAL_WEIGHT_PROFILES = profiles;
-  window.REJIMETAL_DEFAULT_WEIGHT_PROFILE = {
-    kgM2: 32,
-    basis: 'Referencia media para rejilla metálica a medida con marco sencillo.',
-    note: DEFAULT_NOTE
-  };
-  window.REJIMETAL_getWeightProfile = function (product) {
-    if (!product || !product.id) {
-      return window.REJIMETAL_DEFAULT_WEIGHT_PROFILE;
-    }
-    return window.REJIMETAL_WEIGHT_PROFILES[product.id] || window.REJIMETAL_DEFAULT_WEIGHT_PROFILE;
-  };
-})();
+const basisText = (profile) => {
+  const crossLabel = profile.crossType === 'round'
+    ? 'varilla Ø' + profile.crossSizeMm + ' mm'
+    : profile.crossType === 'flat'
+      ? 'fleje ' + profile.crossHeightMm + 'x' + profile.crossThicknessMm + ' mm'
+      : 'cuadradillo ' + profile.crossSizeMm + ' mm';
+  return 'Referencia: pletina ' + profile.bearingHeightMm + 'x' + profile.bearingThicknessMm + ' mm cada ' + profile.bearingPitchMm + ' mm, ' + crossLabel + ' cada ' + profile.crossPitchMm + ' mm.';
+};
+
+const profileDefs = {
+  'rejilla-electrosoldada-cuadradillo-entregirado': { bearingHeightMm: 30, bearingThicknessMm: 3, bearingPitchMm: 34, crossType: 'square', crossSizeMm: 6, crossPitchMm: 100, extraKgM2: 4.0 },
+  'rejilla-electrosoldada-varilla-lisa': { bearingHeightMm: 30, bearingThicknessMm: 2, bearingPitchMm: 34, crossType: 'round', crossSizeMm: 5, crossPitchMm: 100, extraKgM2: 3.0 },
+  'rejilla-electrosoldada-perfil-proteccion': { bearingHeightMm: 30, bearingThicknessMm: 3, bearingPitchMm: 34, crossType: 'square', crossSizeMm: 6, crossPitchMm: 100, extraKgM2: 6.5 },
+  'rejilla-electrosoldada-dentado-ondulado': { bearingHeightMm: 30, bearingThicknessMm: 3, bearingPitchMm: 34, crossType: 'square', crossSizeMm: 6, crossPitchMm: 100, extraKgM2: 4.5, serratedExtraKgM2: 0.8 },
+  'rejilla-electrosoldada-dentado-ondulado-perfil': { bearingHeightMm: 30, bearingThicknessMm: 3, bearingPitchMm: 34, crossType: 'square', crossSizeMm: 6, crossPitchMm: 100, extraKgM2: 7.0, serratedExtraKgM2: 0.8 },
+  'rejilla-electrosoldada-dentado-sierra-discontinuo': { bearingHeightMm: 35, bearingThicknessMm: 3, bearingPitchMm: 34, crossType: 'square', crossSizeMm: 6, crossPitchMm: 100, extraKgM2: 4.5, serratedExtraKgM2: 0.8 },
+  'rejilla-electrosoldada-dentado-sierra-discontinuo-perfil': { bearingHeightMm: 35, bearingThicknessMm: 3, bearingPitchMm: 34, crossType: 'square', crossSizeMm: 6, crossPitchMm: 100, extraKgM2: 7.0, serratedExtraKgM2: 0.8 },
+  'rejilla-electrosoldada-tipo-offshore': { bearingHeightMm: 30, bearingThicknessMm: 3, bearingPitchMm: 30, crossType: 'square', crossSizeMm: 5, crossPitchMm: 50, extraKgM2: 5.0 },
+  'rejilla-electrosoldada-tipo-offshore-seguridad': { bearingHeightMm: 35, bearingThicknessMm: 3, bearingPitchMm: 30, crossType: 'square', crossSizeMm: 5, crossPitchMm: 50, extraKgM2: 6.5, serratedExtraKgM2: 0.9 },
+  'rejilla-prensada-flejes-diferentes': { bearingHeightMm: 25, bearingThicknessMm: 2, bearingPitchMm: 30, crossType: 'flat', crossHeightMm: 20, crossThicknessMm: 2, crossPitchMm: 100, extraKgM2: 3.0 },
+  'rejilla-prensada-flejes-diferentes-dentado-sierra': { bearingHeightMm: 30, bearingThicknessMm: 2, bearingPitchMm: 30, crossType: 'flat', crossHeightMm: 20, crossThicknessMm: 2, crossPitchMm: 100, extraKgM2: 3.5, serratedExtraKgM2: 0.8 },
+  'rejilla-prensada-flejes-diferentes-dentado-ondulado': { bearingHeightMm: 30, bearingThicknessMm: 2, bearingPitchMm: 30, crossType: 'flat', crossHeightMm: 20, crossThicknessMm: 2, crossPitchMm: 100, extraKgM2: 3.2, serratedExtraKgM2: 0.6 },
+  'rejilla-prensada-flejes-iguales': { bearingHeightMm: 25, bearingThicknessMm: 2, bearingPitchMm: 30, crossType: 'flat', crossHeightMm: 25, crossThicknessMm: 2, crossPitchMm: 50, extraKgM2: 3.0 },
+  'rejilla-prensada-flejes-iguales-dentado-sierra': { bearingHeightMm: 30, bearingThicknessMm: 2, bearingPitchMm: 30, crossType: 'flat', crossHeightMm: 30, crossThicknessMm: 2, crossPitchMm: 50, extraKgM2: 3.2, serratedExtraKgM2: 0.8 },
+  'rejilla-prensada-flejes-iguales-dentado-ondulado': { bearingHeightMm: 30, bearingThicknessMm: 2, bearingPitchMm: 30, crossType: 'flat', crossHeightMm: 30, crossThicknessMm: 2, crossPitchMm: 50, extraKgM2: 3.0, serratedExtraKgM2: 0.6 },
+  'rejilla-metalica-manual': { bearingHeightMm: 30, bearingThicknessMm: 3, bearingPitchMm: 30, crossType: 'square', crossSizeMm: 6, crossPitchMm: 80, extraKgM2: 6.0 },
+  'peldano-rejilla-para-apoyar': { bearingHeightMm: 30, bearingThicknessMm: 3, bearingPitchMm: 30, crossType: 'square', crossSizeMm: 6, crossPitchMm: 80, extraKgM2: 12.0, serratedExtraKgM2: 0.8 },
+  'peldano-rejilla-para-soldar': { bearingHeightMm: 30, bearingThicknessMm: 3, bearingPitchMm: 30, crossType: 'square', crossSizeMm: 6, crossPitchMm: 90, extraKgM2: 10.0, serratedExtraKgM2: 0.8 },
+  'peldano-rejilla-para-atornillar': { bearingHeightMm: 30, bearingThicknessMm: 3, bearingPitchMm: 30, crossType: 'square', crossSizeMm: 6, crossPitchMm: 80, extraKgM2: 13.0, serratedExtraKgM2: 0.8 },
+  'alcorque-metalico-rejilla': { bearingHeightMm: 25, bearingThicknessMm: 3, bearingPitchMm: 40, crossType: 'square', crossSizeMm: 6, crossPitchMm: 80, extraKgM2: 7.0 },
+  'canaleta-drenaje-rejilla-metalica': { bearingHeightMm: 30, bearingThicknessMm: 3, bearingPitchMm: 30, crossType: 'square', crossSizeMm: 6, crossPitchMm: 100, extraKgM2: 10.0 }
+};
+
+export const WEIGHT_PROFILES = Object.fromEntries(
+  Object.entries(profileDefs).map(([id, profile]) => [
+    id,
+    { ...profile, kgM2: profileWeightKgM2(profile), basis: basisText(profile), note: DEFAULT_NOTE }
+  ])
+);
+
+export const DEFAULT_WEIGHT_PROFILE = {
+  kgM2: 32,
+  basis: 'Referencia media para rejilla metálica a medida con marco sencillo.',
+  note: DEFAULT_NOTE
+};
+
+export function getWeightProfile(product) {
+  if (!product || !product.id) return DEFAULT_WEIGHT_PROFILE;
+  return WEIGHT_PROFILES[product.id] || DEFAULT_WEIGHT_PROFILE;
+}
