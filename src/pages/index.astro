@@ -1,6 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import ContactSection from '../components/ContactSection.astro';
+import { Image } from 'astro:assets';
+import imgAereo from '../assets/img/trabajos/sector-aereo.webp';
+import imgFerroviario from '../assets/img/trabajos/sector-ferroviario.webp';
+import imgMaritimo from '../assets/img/trabajos/sector-maritimo.webp';
+import imgPetroquimico from '../assets/img/trabajos/sector-petroquimico.webp';
 
 const ldJson = [
   JSON.stringify({
@@ -9,7 +14,7 @@ const ldJson = [
     "@id": "https://www.rejimetal.com/#empresa",
     "name": "REJIMETAL S.L.",
     "url": "https://www.rejimetal.com/",
-    "logo": "https://www.rejimetal.com/assets/img/logo-rejimetal.png",
+    "logo": "https://www.rejimetal.com/assets/img/logo-rejimetal.webp",
     "image": "https://www.rejimetal.com/assets/img/rejimetal-fachada-corporativa.webp",
     "description": "Fabricación de rejillas metálicas, tramex, peldaños, marcos y emparrillados a medida para trabajos especiales, huecos existentes y soluciones fuera de catálogo.",
     "telephone": "+34 968 597 553",
@@ -74,28 +79,28 @@ const ldJson = [
         <div class="hero-work-carousel" data-home-work-carousel aria-label="Carrusel de trabajos realizados">
           <div class="hero-work-track">
             <figure class="hero-work-slide is-active">
-              <img src="/assets/img/trabajos/sector-aereo.webp" alt="Rejillas y plataformas metálicas para trabajos en industria aérea" width="1600" height="900" fetchpriority="high" />
+              <Image src={imgAereo} alt="Rejillas y plataformas metálicas para trabajos en industria aérea" width={1600} height={900} quality={60} fetchpriority="high" loading="eager" />
               <figcaption>
                 <span>Industria aérea</span>
                 <strong>Plataformas, escaleras y accesos de mantenimiento.</strong>
               </figcaption>
             </figure>
             <figure class="hero-work-slide">
-              <img src="/assets/img/trabajos/sector-ferroviario.webp" alt="Rejillas metálicas para mantenimiento ferroviario" width="1600" height="900" loading="lazy" />
+              <Image src={imgFerroviario} alt="Rejillas metálicas para mantenimiento ferroviario" width={1600} height={900} quality={60} loading="lazy" />
               <figcaption>
                 <span>Industria ferroviaria</span>
                 <strong>Pasarelas, peldaños y zonas técnicas de inspección.</strong>
               </figcaption>
             </figure>
             <figure class="hero-work-slide">
-              <img src="/assets/img/trabajos/sector-maritimo.webp" alt="Rejillas galvanizadas en entorno marítimo" width="1600" height="900" loading="lazy" />
+              <Image src={imgMaritimo} alt="Rejillas galvanizadas en entorno marítimo" width={1600} height={900} quality={60} loading="lazy" />
               <figcaption>
                 <span>Industria marítima</span>
                 <strong>Emparrillados preparados para humedad y exterior.</strong>
               </figcaption>
             </figure>
             <figure class="hero-work-slide">
-              <img src="/assets/img/trabajos/sector-petroquimico.webp" alt="Rejillas industriales en planta petroquímica" width="1600" height="900" loading="lazy" />
+              <Image src={imgPetroquimico} alt="Rejillas industriales en planta petroquímica" width={1600} height={900} quality={60} loading="lazy" />
               <figcaption>
                 <span>Industria petroquímica</span>
                 <strong>Rejillas para operación, paso y mantenimiento industrial.</strong>
