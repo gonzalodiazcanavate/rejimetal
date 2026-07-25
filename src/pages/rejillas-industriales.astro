@@ -1,5 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import ServiceProcess from '../components/ServiceProcess.astro';
+import ServiceFaq from '../components/ServiceFaq.astro';
 
 const ldJson = [
   JSON.stringify({
@@ -90,42 +92,29 @@ const ldJson = [
     </div>
   </section>
 
-  <section class="section service-process-section">
-    <div class="container compact-process">
-      <div>
-        <p class="eyebrow">Forma de trabajo</p>
-        <h2>Cómo lo definimos antes de fabricar</h2>
-        <p>Revisamos la información disponible, aclaramos el uso real y evitamos fabricar una pieza que luego no apoye bien o no responda al entorno.</p>
-      </div>
-      <ol class="process-steps">
-        <li><strong>1.</strong><span>Envías medidas, plano, croquis, foto o muestra.</span></li>
-        <li><strong>2.</strong><span>Se revisa hueco, apoyo, carga aproximada y acabado.</span></li>
-        <li><strong>3.</strong><span>Te orientamos y preparamos presupuesto.</span></li>
-        <li><strong>4.</strong><span>Fabricamos la pieza a medida cuando la solución es viable.</span></li>
-      </ol>
-    </div>
-  </section>
+  <ServiceProcess
+    steps={[
+      { label: '1.', text: 'Envías medidas, plano, croquis, foto o muestra.' },
+      { label: '2.', text: 'Se revisa hueco, apoyo, carga aproximada y acabado.' },
+      { label: '3.', text: 'Te orientamos y preparamos presupuesto.' },
+      { label: '4.', text: 'Fabricamos la pieza a medida cuando la solución es viable.' },
+    ]}
+  />
 
-  <section class="section faq-section">
-    <div class="container faq-layout">
-      <div>
-        <p class="eyebrow">Preguntas frecuentes</p>
-        <h2>Dudas antes de pedir precio</h2>
-      </div>
-      <div class="faq-list">
-        <details>
-          <summary>¿Una rejilla industrial necesita siempre marco?</summary>
-          <p>No siempre. Depende del apoyo, del remate de obra y de cómo se vaya a instalar o retirar la pieza.</p>
-        </details>
-        <details>
-          <summary>¿Se puede fabricar para un canal o arqueta existente?</summary>
-          <p>Sí, es uno de los casos habituales: se toman medidas del hueco, apoyo y entorno, y se define la pieza.</p>
-        </details>
-        <details>
-          <summary>¿El peso calculado en web es definitivo?</summary>
-          <p>No. Es orientativo. El peso final se confirma al definir malla, pletina, marco, recortes y acabado.</p>
-        </details>
-      </div>
-    </div>
-  </section>
+  <ServiceFaq
+    items={[
+      {
+        question: '¿Una rejilla industrial necesita siempre marco?',
+        answer: 'No siempre. Depende del apoyo, del remate de obra y de cómo se vaya a instalar o retirar la pieza.',
+      },
+      {
+        question: '¿Se puede fabricar para un canal o arqueta existente?',
+        answer: 'Sí, es uno de los casos habituales: se toman medidas del hueco, apoyo y entorno, y se define la pieza.',
+      },
+      {
+        question: '¿El peso calculado en web es definitivo?',
+        answer: 'No. Es orientativo. El peso final se confirma al definir malla, pletina, marco, recortes y acabado.',
+      },
+    ]}
+  />
 </Layout>

@@ -1,5 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import ServiceProcess from '../components/ServiceProcess.astro';
+import ServiceFaq from '../components/ServiceFaq.astro';
 
 const ldJson = [
   JSON.stringify({
@@ -90,42 +92,29 @@ const ldJson = [
     </div>
   </section>
 
-  <section class="section service-process-section">
-    <div class="container compact-process">
-      <div>
-        <p class="eyebrow">Forma de trabajo</p>
-        <h2>Cómo lo definimos antes de fabricar</h2>
-        <p>Revisamos la información disponible, aclaramos el uso real y evitamos fabricar una pieza que luego no apoye bien o no responda al entorno.</p>
-      </div>
-      <ol class="process-steps">
-        <li><strong>1.</strong><span>Envías medidas, plano, croquis, foto o muestra.</span></li>
-        <li><strong>2.</strong><span>Se revisa hueco, apoyo, carga aproximada y acabado.</span></li>
-        <li><strong>3.</strong><span>Te orientamos y preparamos presupuesto.</span></li>
-        <li><strong>4.</strong><span>Fabricamos la pieza a medida cuando la solución es viable.</span></li>
-      </ol>
-    </div>
-  </section>
+  <ServiceProcess
+    steps={[
+      { label: '1.', text: 'Envías medidas, plano, croquis, foto o muestra.' },
+      { label: '2.', text: 'Se revisa hueco, apoyo, carga aproximada y acabado.' },
+      { label: '3.', text: 'Te orientamos y preparamos presupuesto.' },
+      { label: '4.', text: 'Fabricamos la pieza a medida cuando la solución es viable.' },
+    ]}
+  />
 
-  <section class="section faq-section">
-    <div class="container faq-layout">
-      <div>
-        <p class="eyebrow">Preguntas frecuentes</p>
-        <h2>Dudas antes de pedir precio</h2>
-      </div>
-      <div class="faq-list">
-        <details>
-          <summary>¿Tramex y rejilla metálica son lo mismo?</summary>
-          <p>En uso habitual se emplean como términos cercanos. En presupuesto conviene definir la geometría, malla, apoyo y uso para evitar confusiones.</p>
-        </details>
-        <details>
-          <summary>¿Se puede adaptar a un marco existente?</summary>
-          <p>Sí, se puede estudiar una pieza para un marco o apoyo ya instalado, siempre que se midan bien las cotas reales.</p>
-        </details>
-        <details>
-          <summary>¿El acabado se decide al final?</summary>
-          <p>El acabado se define durante la consulta, porque afecta al entorno, durabilidad, peso y coste de la pieza.</p>
-        </details>
-      </div>
-    </div>
-  </section>
+  <ServiceFaq
+    items={[
+      {
+        question: '¿Tramex y rejilla metálica son lo mismo?',
+        answer: 'En uso habitual se emplean como términos cercanos. En presupuesto conviene definir la geometría, malla, apoyo y uso para evitar confusiones.',
+      },
+      {
+        question: '¿Se puede adaptar a un marco existente?',
+        answer: 'Sí, se puede estudiar una pieza para un marco o apoyo ya instalado, siempre que se midan bien las cotas reales.',
+      },
+      {
+        question: '¿El acabado se decide al final?',
+        answer: 'El acabado se define durante la consulta, porque afecta al entorno, durabilidad, peso y coste de la pieza.',
+      },
+    ]}
+  />
 </Layout>

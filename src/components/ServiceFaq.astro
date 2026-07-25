@@ -1,0 +1,35 @@
+---
+interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  eyebrow?: string;
+  heading?: string;
+  items: FaqItem[];
+}
+
+const {
+  eyebrow = 'Preguntas frecuentes',
+  heading = 'Dudas antes de pedir precio',
+  items,
+} = Astro.props;
+---
+
+<section class="section faq-section">
+  <div class="container faq-layout">
+    <div>
+      <p class="eyebrow">{eyebrow}</p>
+      <h2>{heading}</h2>
+    </div>
+    <div class="faq-list">
+      {items.map((item) => (
+        <details>
+          <summary>{item.question}</summary>
+          <p>{item.answer}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
