@@ -17,9 +17,7 @@
   --color-red:       #f43243;
   --color-red-dark:  #c51f2c;
 
-  /* Tipografía */
-  --font-family-body:    "Manrope", sans-serif;
-  --font-family-display: "Rajdhani", sans-serif;
+  /* Tipografía – las variables son inyectadas por la API de fuentes de Astro */
 
   /* Sombras reutilizables */
   --shadow-card:   0 18px 46px rgba(23, 39, 57, 0.11);
@@ -27,6 +25,12 @@
 
   /* Contenedor máximo */
   --width-container: 1380px;
+}
+
+@theme {
+  /* Tipografía – referencia las variables CSS de la API de fuentes de Astro */
+  --font-family-body:    var(--font-manrope);
+  --font-family-display: var(--font-rajdhani);
 }
 
 /* ================================================================
@@ -270,7 +274,7 @@
     border-radius: 18px;
   }
   .brand-title {
-    font-family: Manrope, sans-serif;
+    font-family: var(--font-body);
     font-size: clamp(0.94rem, 1.2vw, 1.22rem);
     font-weight: 800;
     letter-spacing: 0.18em;
@@ -283,7 +287,7 @@
   /* --- Navegación --- */
   .main-nav { display: flex; align-items: center; gap: 24px; }
   .main-nav a {
-    font-family: Manrope, sans-serif;
+    font-family: var(--font-body);
     font-size: 0.95rem;
     font-weight: 800;
     letter-spacing: -0.01em;
@@ -404,7 +408,7 @@
   .compact-process h2,
   .faq-layout h2,
   .service-data-panel h2 {
-    font-family: Rajdhani, Manrope, sans-serif;
+    font-family: var(--font-display);
     color: var(--ink);
     font-weight: 600;
     line-height: 0.98;
@@ -911,7 +915,7 @@
   .compact-card-grid span {
     display: block;
     color: var(--brand-blue);
-    font-family: Rajdhani, sans-serif;
+    font-family: var(--font-display);
     font-size: 1.4rem;
     font-weight: 800;
     margin-bottom: 14px;
@@ -977,7 +981,7 @@
     height: 42px;
     background: linear-gradient(135deg, var(--brand-blue), var(--brand-blue-dark));
     color: #fff;
-    font-family: Rajdhani, sans-serif;
+    font-family: var(--font-display);
     font-size: 1.35rem;
     box-shadow: 0 10px 22px rgba(11, 79, 147, 0.16);
   }
