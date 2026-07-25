@@ -1,4 +1,9 @@
 ---
+import '../styles/global.css';
+import { Font } from 'astro:assets';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+
 interface Props {
   title: string;
   description: string;
@@ -8,7 +13,6 @@ interface Props {
   ogTitle?: string;
   ogDescription?: string;
   ogUrl?: string;
-  mainCss?: string;
   bodyClass?: string;
   ldJson?: string[];
   footerTagline?: string;
@@ -23,18 +27,12 @@ const {
   ogTitle,
   ogDescription,
   ogUrl,
-  mainCss = '/assets/css/styles.css',
   bodyClass,
   ldJson,
-  footerTagline = 'Fabricación de rejillas metálicas a medida',
+  footerTagline,
 } = Astro.props;
 
 const pathname = Astro.url.pathname;
-const isHome = pathname === '/';
-const isAbout = pathname.startsWith('/quienes-somos');
-const isProducts = pathname.startsWith('/productos');
-const isWorks = pathname.startsWith('/trabajos');
-const isContact = pathname.startsWith('/contacto');
 ---
 
 <!DOCTYPE html>
@@ -49,7 +47,7 @@ const isContact = pathname.startsWith('/contacto');
   {ogType && <meta property="og:type" content={ogType} />}
   {ogTitle && <meta property="og:title" content={ogTitle} />}
   {ogDescription && <meta property="og:description" content={ogDescription} />}
-  <meta property="og:image" content="https://www.rejimetal.com/assets/img/logo-rejimetal.png" />
+  <meta property="og:image" content="https://www.rejimetal.com/assets/img/logo-rejimetal.webp" />
   <meta property="og:locale" content="es_ES" />
   {ogUrl && <meta property="og:url" content={ogUrl} />}
   <meta name="twitter:card" content="summary_large_image" />
@@ -59,10 +57,8 @@ const isContact = pathname.startsWith('/contacto');
   <link rel="icon" type="image/png" sizes="192x192" href="/assets/img/icons/icon-192.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/icons/apple-touch-icon.png" />
   <link rel="manifest" href="/site.webmanifest" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href={mainCss} />
+  <Font cssVariable="--font-manrope" preload />
+  <Font cssVariable="--font-rajdhani" />
   {ldJson && ldJson.map((schema) => (
     <script type="application/ld+json" set:html={schema} />
   ))}
@@ -74,39 +70,15 @@ const isContact = pathname.startsWith('/contacto');
     <p class="noscript-note">La web funciona sin JavaScript, pero la calculadora y el formulario preparado requieren JavaScript.</p>
   </noscript>
 
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="/" aria-label="Inicio REJIMETAL">
-        <span class="brand-mark"><img src="/assets/img/logo-rejimetal.png" alt="Logo REJIMETAL" /></span>
-        <span class="brand-title">REJILLAS METÁLICAS</span>
-      </a>
-
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Abrir menú">
-        <span></span><span></span><span></span>
-      </button>
-
-      <nav id="main-nav" class="main-nav" aria-label="Navegación principal">
-        <a href={isHome ? '#hero' : '/'} class:list={[{ 'is-active': isHome }]}>Inicio</a>
-        <a href="/quienes-somos" class:list={[{ 'is-active': isAbout }]}>Quiénes somos</a>
-        <a href="/productos" class:list={[{ 'is-active': isProducts }]}>Productos</a>
-        <a href="/trabajos" class:list={[{ 'is-active': isWorks }]}>Trabajos realizados</a>
-        <a href={isHome ? '#contacto' : '/contacto'} class:list={['nav-cta', { 'is-active': isContact }]}>Contacto</a>
-      </nav>
-    </div>
-  </header>
+  <SiteHeader pathname={pathname} />
 
   <main id="main-content">
     <slot />
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>© <span id="current-year"></span> REJIMETAL S.L.</p>
-      <p>{footerTagline}</p>
-    </div>
-  </footer>
+  <SiteFooter tagline={footerTagline} />
 
   <slot name="scripts" />
-  <script src="/assets/js/main.js" is:inline></script>
+  <script>import '../scripts/core.js';</script>
 </body>
 </html>

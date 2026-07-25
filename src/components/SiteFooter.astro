@@ -1,0 +1,14 @@
+---
+interface Props {
+  tagline?: string;
+}
+
+const { tagline = 'Fabricación de rejillas metálicas a medida' } = Astro.props;
+---
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>© <span id="current-year"></span> REJIMETAL S.L.</p>
+    <p>{tagline}</p>
+  </div>
+</footer>

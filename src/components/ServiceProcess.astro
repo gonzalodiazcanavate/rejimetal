@@ -1,0 +1,35 @@
+---
+interface Step {
+  label: string;
+  text: string;
+}
+
+interface Props {
+  eyebrow?: string;
+  heading?: string;
+  intro?: string;
+  steps: Step[];
+}
+
+const {
+  eyebrow = 'Forma de trabajo',
+  heading = 'Cómo lo definimos antes de fabricar',
+  intro = 'Revisamos la información disponible, aclaramos el uso real y evitamos fabricar una pieza que luego no apoye bien o no responda al entorno.',
+  steps,
+} = Astro.props;
+---
+
+<section class="section service-process-section">
+  <div class="container compact-process">
+    <div>
+      <p class="eyebrow">{eyebrow}</p>
+      <h2>{heading}</h2>
+      <p>{intro}</p>
+    </div>
+    <ol class="process-steps">
+      {steps.map((step) => (
+        <li><strong>{step.label}</strong><span>{step.text}</span></li>
+      ))}
+    </ol>
+  </div>
+</section>
