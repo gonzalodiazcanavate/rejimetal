@@ -7,7 +7,6 @@ import Layout from '../../layouts/Layout.astro';
   description="Referencia visual 3D de una pieza de rejilla metálica fabricable a medida. Las dimensiones, carga, apoyo y acabado se confirman caso a caso."
   canonical="https://www.rejimetal.com/productos/ficha"
   robots="noindex,follow"
-  mainCss="/assets/css/product.css"
   bodyClass="ficha-page"
   footerTagline="Ficha de apoyo para consulta técnica"
 >
@@ -64,12 +63,5 @@ import Layout from '../../layouts/Layout.astro';
     <p class="helper-text">Para presupuestar con criterio, envía medidas en mm, unidades, uso, entorno y una foto, plano, croquis o muestra si existe.</p>
   </section>
 
-  <Fragment slot="scripts">
-    <script src="/assets/js/catalog-data.js" is:inline></script>
-    <script src="/assets/js/visuals.js" is:inline></script>
-    <script src="/assets/js/product-page.js" is:inline></script>
-    <script src="/assets/vendor/three/three.r128.min.js" is:inline></script>
-    <script src="/assets/vendor/three/OrbitControls.r128.js" is:inline></script>
-    <script src="/assets/js/product-3d.js" is:inline></script>
-  </Fragment>
+  <script>import '../../scripts/product-page.js';</script>
 </Layout>
