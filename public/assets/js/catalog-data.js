@@ -360,6 +360,3 @@ window.REJIMETAL_CATEGORIES = [
     return window.REJIMETAL_WEIGHT_PROFILES[product.id] || window.REJIMETAL_DEFAULT_WEIGHT_PROFILE;
   };
 })();
-
-
-

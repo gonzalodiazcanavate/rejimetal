@@ -1,0 +1,45 @@
+---
+interface Props {
+  pathname: string;
+}
+
+const { pathname } = Astro.props;
+
+const isHome     = pathname === '/';
+const isAbout    = pathname.startsWith('/quienes-somos');
+const isProducts = pathname.startsWith('/productos');
+const isWorks    = pathname.startsWith('/trabajos');
+const isContact  = pathname.startsWith('/contacto');
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/" aria-label="Inicio REJIMETAL">
+      <span class="brand-mark">
+        <img src="/assets/img/logo-rejimetal.png" alt="Logo REJIMETAL" />
+      </span>
+      <span class="brand-title">REJILLAS METÁLICAS</span>
+    </a>
+
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="main-nav"
+      aria-label="Abrir menú"
+    >
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav id="main-nav" class="main-nav" aria-label="Navegación principal">
+      <a href={isHome ? '#hero' : '/'} class:list={[{ 'is-active': isHome }]}>Inicio</a>
+      <a href="/quienes-somos" class:list={[{ 'is-active': isAbout }]}>Quiénes somos</a>
+      <a href="/productos" class:list={[{ 'is-active': isProducts }]}>Productos</a>
+      <a href="/trabajos" class:list={[{ 'is-active': isWorks }]}>Trabajos realizados</a>
+      <a
+        href={isHome ? '#contacto' : '/contacto'}
+        class:list={['nav-cta', { 'is-active': isContact }]}
+      >Contacto</a>
+    </nav>
+  </div>
+</header>
