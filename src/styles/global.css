@@ -572,7 +572,6 @@
   /* --- Tarjetas con gradiente interactivo --- */
   .hero-panel,
   .budget-card,
-  .quote-panel,
   .contact-panel,
   .solution-grid article,
   .case-list article,
@@ -584,7 +583,6 @@
   }
   .hero-panel,
   .budget-card,
-  .quote-panel,
   .contact-panel,
   .service-card,
   .case-list article,
@@ -606,7 +604,6 @@
   }
   .hero-panel:hover,
   .budget-card:hover,
-  .quote-panel:hover,
   .contact-panel:hover,
   .solution-grid article:hover,
   .case-list article:hover,
@@ -883,13 +880,13 @@
     transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
   }
   .solution-grid h3, .case-list h3, .habit-grid h3, .work-card h3,
-  .service-card h3, .budget-card h3, .quote-panel h3, .contact-panel h3, .info-panel h3 {
+  .service-card h3, .budget-card h3, .contact-panel h3, .info-panel h3 {
     margin: 0 0 10px;
     font-family: var(--font-display);
     color: var(--ink);
   }
   .solution-grid p, .case-list p, .habit-grid p, .work-card p,
-  .service-card p, .quote-panel p, .info-panel p {
+  .service-card p, .info-panel p {
     margin: 0;
     color: var(--muted);
     line-height: 1.55;
@@ -998,25 +995,20 @@
   .process-steps span { color: var(--ink) !important; font-weight: 800 !important; line-height: 1.35; }
 
   /* --- Budget section --- */
-  .budget-card, .quote-panel { padding: clamp(22px, 3vw, 30px); }
-  .quote-panel { grid-column: 1 / -1; border-top: 5px solid var(--red); }
+  .budget-card { padding: clamp(22px, 3vw, 30px); }
 
   /* --- Formularios --- */
-  .quick-calc-form,
   .contact-form {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 14px;
   }
-  .quick-calc-form label,
   .contact-form label {
     display: grid;
     gap: 7px;
     color: #354250;
     font-weight: 700;
   }
-  .quick-calc-form input,
-  .quick-calc-form select,
   .contact-form input,
   .contact-form select,
   .contact-form textarea {
@@ -1028,8 +1020,6 @@
     border-radius: 0;
     font-size: 1rem;
   }
-  .quick-calc-form input:focus,
-  .quick-calc-form select:focus,
   .contact-form input:focus,
   .contact-form select:focus,
   .contact-form textarea:focus {
@@ -1037,63 +1027,10 @@
     border-color: var(--blue);
   }
   .field-full,
-  .quick-calc-form .btn,
-  .calc-result,
   .form-note,
   .form-feedback { grid-column: 1 / -1; }
-  .calc-result,
   .form-feedback { min-height: 1.3em; color: var(--blue); font-weight: 800; }
   .form-note { margin: 0; color: var(--muted); font-size: 0.92rem; line-height: 1.5; }
-
-  .input-unit {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    align-items: stretch;
-  }
-  .input-unit > input { border-right: 0; }
-  .input-unit > span {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 54px;
-    padding: 0 12px;
-    border: 1px solid #cfdbe8;
-    background: var(--blue-soft);
-    color: var(--blue-dark);
-    font-weight: 800;
-  }
-  .quote-actions { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 12px; }
-  .quote-product-panel {
-    grid-column: 1 / -1;
-    display: grid;
-    grid-template-columns: minmax(128px, 170px) minmax(0, 1fr);
-    gap: 18px;
-    align-items: stretch;
-    border: 1px solid #d7e1eb;
-    background: linear-gradient(135deg, #fff, #f4f8fc);
-    padding: 14px;
-  }
-  .quote-product-preview { width: 100%; min-height: 150px; }
-  .quote-product-copy { display: grid; align-content: center; gap: 10px; }
-  .quote-product-copy p { color: var(--muted); line-height: 1.5; }
-  .quote-weight-card {
-    border: 1px solid #cfdbe8;
-    background: linear-gradient(135deg, rgba(20, 79, 145, 0.08), transparent 44%), #fff;
-    padding: 14px;
-    min-height: 100%;
-    display: grid;
-    align-content: center;
-    gap: 6px;
-  }
-  .quote-weight-card > span { color: #354250; font-weight: 800; }
-  .quote-weight-card strong {
-    display: block;
-    color: var(--blue-dark);
-    font-size: clamp(1.4rem, 3vw, 2rem);
-    line-height: 1;
-    letter-spacing: -0.02em;
-  }
-  .quote-weight-card small { color: var(--muted); line-height: 1.45; }
 
   /* --- Contacto --- */
   .contact { background: var(--paper); }
@@ -1484,7 +1421,6 @@
   }
   .service-visual .visual-svg,
   .product-visual .visual-svg,
-  .quote-product-preview .visual-svg,
   .work-visual .visual-svg { width: 100%; height: 100%; display: block; }
   .visual-bg { fill: #f7fafc; }
   .visual-soft-shadow { fill: rgba(30, 42, 56, 0.15); }
@@ -2171,23 +2107,22 @@
     .story-card-content { padding: 20px 18px; }
     .story-card p { font-size: 0.98rem; line-height: 1.62; }
     .story-lead { font-size: 1.04rem !important; }
-    .hero-actions, .contact-buttons, .quote-actions, .actions-grid { display: grid; grid-template-columns: 1fr; }
-    .hero-actions .btn, .contact-buttons .btn, .product-featured-actions .btn, .quote-actions .btn { width: 100%; }
+    .hero-actions, .contact-buttons, .actions-grid { display: grid; grid-template-columns: 1fr; }
+    .hero-actions .btn, .contact-buttons .btn, .product-featured-actions .btn { width: 100%; }
     .hero-work-carousel { min-height: 360px; aspect-ratio: 4 / 3; }
     .hero-work-slide img { min-height: 360px; object-fit: cover; }
     .hero-work-slide figcaption { left: 16px; right: 16px; bottom: 18px; padding: 12px 14px; }
     .hero-work-slide figcaption strong { font-size: 0.98rem; }
     .hero-work-arrow { width: 42px; height: 42px; }
-    .solution-grid, .case-list, .work-grid, .service-card-grid, .work-grid--page, .catalog-grid, .capability-grid, .trust-grid, .habit-grid, .process-steps, .quick-calc-form, .contact-form, .actions-grid { grid-template-columns: 1fr; }
-    .compact-card-grid, .service-card-grid, .process-steps, .noscript-products, .quick-calc-form, .contact-form, .budget-layout, .contact-layout, .ficha-grid { grid-template-columns: 1fr !important; }
-    .quote-product-panel { grid-template-columns: 1fr !important; }
+    .solution-grid, .case-list, .work-grid, .service-card-grid, .work-grid--page, .catalog-grid, .capability-grid, .trust-grid, .habit-grid, .process-steps, .contact-form, .actions-grid { grid-template-columns: 1fr; }
+    .compact-card-grid, .service-card-grid, .process-steps, .noscript-products, .contact-form, .budget-layout, .contact-layout, .ficha-grid { grid-template-columns: 1fr !important; }
     .product-rail { grid-template-columns: 1fr; }
     .product-mini-card { min-height: 122px; }
     .product-mini-card button { grid-template-columns: 80px minmax(0,1fr); }
     .product-mini-visual { width: 80px; }
     .product-studio { display: block; }
     .viewer-wrap { height: clamp(340px, 78vh, 520px); }
-    .field-full, .quick-calc-form .btn, .calc-result, .form-note, .form-feedback { grid-column: 1; }
+    .field-full, .form-note, .form-feedback { grid-column: 1; }
     .footer-inner { min-height: auto; padding: 18px 0; flex-direction: column; align-items: flex-start; }
     .contact-map iframe { min-height: 280px; }
     .about-story-page .story-card p:not(.story-lead) { text-align: left !important; text-align-last: auto; }

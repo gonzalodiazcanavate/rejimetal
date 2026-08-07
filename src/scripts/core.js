@@ -21,7 +21,7 @@ if (!prefersReducedMotion) {
   }, { passive: true });
 
   const interactiveSurfaces = Array.from(document.querySelectorAll([
-    '.hero-panel', '.budget-card', '.quote-panel', '.contact-panel',
+    '.hero-panel', '.budget-card', '.contact-panel',
     '.solution-grid article', '.case-list article', '.habit-grid article', '.info-panel'
   ].join(',')));
 

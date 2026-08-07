@@ -232,40 +232,6 @@ const ldJson = [
         </ul>
       </div>
 
-      <div class="quote-panel reveal">
-        <h3>Calculadora orientativa de superficie y peso</h3>
-        <p>Introduce las medidas en milímetros. La web aplica el peso de referencia del tipo seleccionado para preparar una consulta clara por correo.</p>
-        <form id="quick-calc-form" class="quick-calc-form">
-          <div class="quote-product-panel">
-            <div id="quoteProductPreview" class="quote-product-preview service-visual service-visual--grating"></div>
-            <div class="quote-product-copy">
-              <label>Tipo de rejilla
-                <select id="quoteProduct" name="quoteProduct" required></select>
-              </label>
-              <p id="quoteProductDescription">Selecciona una rejilla para ver una referencia visual del tipo de pieza.</p>
-            </div>
-          </div>
-          <label>Largo aproximado (mm)
-            <span class="input-unit"><input type="number" id="quoteLength" name="quoteLength" min="1" step="1" inputmode="numeric" required /><span>mm</span></span>
-          </label>
-          <label>Ancho aproximado (mm)
-            <span class="input-unit"><input type="number" id="quoteWidth" name="quoteWidth" min="1" step="1" inputmode="numeric" required /><span>mm</span></span>
-          </label>
-          <label>Unidades
-            <input type="number" id="quoteUnits" name="quoteUnits" min="1" step="1" inputmode="numeric" value="1" required />
-          </label>
-          <div class="quote-weight-card" aria-live="polite">
-            <span id="quoteWeightTitle">Peso total orientativo</span>
-            <strong id="quoteWeightReference">Pendiente</strong>
-            <small id="quoteWeightBasis">Calcula con medidas y unidades. La referencia kg/m² se aplica según el tipo de rejilla.</small>
-          </div>
-          <div class="quote-actions">
-            <button type="submit" class="btn btn-secondary">Calcular superficie y peso</button>
-            <button type="button" id="quoteEmail" class="btn btn-primary">Enviar cálculo por correo</button>
-          </div>
-          <p class="calc-result" id="calcResult" aria-live="polite"></p>
-        </form>
-      </div>
     </div>
   </section>
 
