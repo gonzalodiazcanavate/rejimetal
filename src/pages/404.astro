@@ -1,0 +1,37 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Página no encontrada | REJIMETAL"
+  description="La página que buscas no está disponible. Vuelve al inicio de REJIMETAL o consulta nuestras soluciones metálicas a medida."
+  canonical="https://www.rejimetal.com/404"
+  robots="noindex,follow"
+  ogType="website"
+  ogTitle="Página no encontrada | REJIMETAL"
+  ogDescription="La página que buscas no está disponible."
+  ogUrl="https://www.rejimetal.com/404"
+>
+  <section class="error-page section-anchor" aria-labelledby="error-title">
+    <div class="container error-layout">
+      <div class="error-copy reveal">
+        <p class="eyebrow">Error 404 · Fuera de plano</p>
+        <h1 id="error-title">Esta página no existe</h1>
+        <p class="error-lead">La dirección puede estar mal escrita o ya no está disponible. Volvamos a una página conocida para encontrar lo que necesitas.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="/">Volver al inicio</a>
+          <a class="btn btn-secondary" href="/productos">Ver productos</a>
+        </div>
+      </div>
+
+      <div class="error-diagram reveal" aria-hidden="true">
+        <span class="error-diagram-label">REJIMETAL / PÁGINA NO ENCONTRADA</span>
+        <strong>404</strong>
+        <span class="error-diagram-line error-diagram-line--top"></span>
+        <span class="error-diagram-line error-diagram-line--bottom"></span>
+        <span class="error-diagram-corner error-diagram-corner--top"></span>
+        <span class="error-diagram-corner error-diagram-corner--bottom"></span>
+      </div>
+    </div>
+  </section>
+</Layout>
