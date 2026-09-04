@@ -107,7 +107,7 @@ if (quoteProduct && PRODUCTS.length) {
     const selected = getSelectedProduct();
     if (!selected) return;
     if (quotePreview) {
-      quotePreview.className = 'quote-product-preview service-visual service-visual--' + (selected.visualType || selected.modelType || 'grating');
+      quotePreview.className = 'service-visual service-visual--' + (selected.visualType || selected.modelType || 'grating');
       quotePreview.innerHTML = renderProductVisual(selected);
     }
     if (quoteDescription) {
