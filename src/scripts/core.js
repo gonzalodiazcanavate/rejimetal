@@ -346,10 +346,6 @@ if (form && feedback) {
     const company = (data.get('company') || '').toString().trim();
     const phone = (data.get('phone') || '').toString().trim();
     const email = (data.get('email') || '').toString().trim();
-    const pieceType = (data.get('pieceType') || '').toString().trim();
-    const measures = (data.get('measures') || '').toString().trim();
-    const units = (data.get('units') || '').toString().trim();
-    const environment = (data.get('environment') || '').toString().trim();
     const message = (data.get('message') || '').toString().trim();
 
     if (!name || !email || !message) {
@@ -362,10 +358,6 @@ if (form && feedback) {
       'Empresa: ' + (company || '-'),
       'Teléfono: ' + (phone || '-'),
       'Email: ' + email,
-      'Tipo de pieza: ' + (pieceType || '-'),
-      'Medidas aproximadas en mm: ' + (measures || '-'),
-      'Unidades: ' + (units || '-'),
-      'Uso/entorno: ' + (environment || '-'),
       '',
       'Mensaje:',
       message,
