@@ -58,19 +58,6 @@ const HeadingTag = headingTag;
         <label>Empresa<input type="text" name="company" autocomplete="organization" /></label>
         <label>Teléfono<input type="tel" name="phone" autocomplete="tel" /></label>
         <label>Email<input type="email" name="email" autocomplete="email" required /></label>
-        <label>Tipo de pieza
-          <select name="pieceType" required>
-            <option value="Rejilla metálica a medida">Rejilla metálica a medida</option>
-            <option value="Tramex a medida">Tramex a medida</option>
-            <option value="Rejilla con marco o registro">Rejilla con marco o registro</option>
-            <option value="Peldaño de rejilla metálica">Peldaño de rejilla metálica</option>
-            <option value="Rejilla para drenaje o ventilación">Rejilla para drenaje o ventilación</option>
-            <option value="Otra rejilla especial">Otra rejilla especial</option>
-          </select>
-        </label>
-        <label>Medidas aproximadas en mm<input type="text" name="measures" /></label>
-        <label>Unidades<input type="number" name="units" min="1" step="1" value="1" /></label>
-        <label>Uso o entorno<input type="text" name="environment" /></label>
         <label class="field-full">Mensaje<textarea name="message" rows="5" required></textarea></label>
         <button type="submit" class="btn btn-primary">Preparar email</button>
         <p class="form-note">

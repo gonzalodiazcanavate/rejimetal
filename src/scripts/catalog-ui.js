@@ -176,7 +176,7 @@ if (quoteProduct && PRODUCTS.length) {
     const selected = PRODUCTS.find((service) => service.id === quoteProduct.value) || PRODUCTS[0];
     const weightProfile = getWeightProfile(selected);
     if (quotePreview && selected) {
-      quotePreview.className = 'quote-product-preview service-visual service-visual--' + escapeHtml(selected.visualType || selected.modelType || 'grating');
+      quotePreview.className = 'service-visual service-visual--' + escapeHtml(selected.visualType || selected.modelType || 'grating');
       quotePreview.innerHTML = renderProductVisual(selected);
     }
     if (quoteDescription && selected) {
